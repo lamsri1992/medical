@@ -45,8 +45,8 @@
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                                 <div class="d-grid gap-2">
-                                    <a href="/store/process" class="btn btn-light btn-lg">
-                                        <i class="fa fa-tasks"></i> ประมวลผล
+                                    <a href="/store/order" class="btn btn-light btn-lg">
+                                        <i class="fa fa-clipboard-list"></i> รายการเบิก
                                     </a>
                                 </div>
                             </div>
@@ -63,20 +63,20 @@
                                         <div class="col-md-4">
                                             <div class="input-group input-group-outline my-3">
                                                 <label class="form-label text-secondary text-xs">เลขที่ใบเบิก</label>
-                                                <input type="text" name="" class="form-control text-secondary text-xxs font-weight-bolder" required>
+                                                <input type="text" name="order_no" class="form-control text-secondary text-xxs font-weight-bolder" required>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group input-group-outline my-3">
                                                 <label class="form-label text-secondary text-xs">วันที่ใบเบิก</label>
-                                                <input type="text" name="" class="form-control text-secondary text-xxs font-weight-bolder basicDate" readonly>
+                                                <input type="text" name="order_date" class="form-control text-secondary text-xxs font-weight-bolder basicDate" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <div class="input-group input-group-static mb-4">
                                                     <label class="ms-0">ชื่อหน่วยงาน</label>
-                                                    <select name="dept" class="basic-select2" required>
+                                                    <select name="order_dept_id" class="basic-select2" required>
                                                         <option></option>
                                                         @foreach($dept as $ds)
                                                             <option value="{{ $ds->dept_id }}">{{ $ds->dept_name }}</option>
@@ -236,9 +236,9 @@
                             showConfirmButton: false,
                             timer: 3000
                         })
-                        // window.setTimeout(function () {
-                        //     location.reload()
-                        // }, 2500);
+                        window.setTimeout(function () {
+                            location.reload('/store/order')
+                        }, 2500);
                     }
                 });
             }

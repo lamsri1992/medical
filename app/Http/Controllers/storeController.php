@@ -113,9 +113,23 @@ class storeController extends Controller
 
      public function take(Request $request)
      {
+        $id = DB::table('medical_order')->insertGetId(
+            [
+            'order_no' => $request->get('order_no'),
+            'order_date' => $request->get('order_date'),
+            'order_dept_id' => $request->get('order_dept_id'),
+            ]
+        );
+
         foreach ($request->addField as $key => $value) {
-            echo($value['g_id']." ".$value['search']." ".$value['lot']." ".$value['amount']." ".$value['expire']." ".$value['withdraw']." // ");
+            DB::table('medical_order_list')->insert(
+                [
+                'list_order_id' => $id,
+                'list_order_no' => $request->get('order_no'),
+                'list_store_id' => $value['g_id'],
+                'list_amount' => $value['withdraw']
+                ]
+            );
         }
      }
-
 }

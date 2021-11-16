@@ -45,8 +45,8 @@
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                                 <div class="d-grid gap-2">
-                                    <a href="/store/process" class="btn btn-light btn-lg">
-                                        <i class="fa fa-tasks"></i> ประมวลผล
+                                    <a href="/store/order" class="btn btn-light btn-lg">
+                                        <i class="fa fa-clipboard-list"></i> รายการเบิก
                                     </a>
                                 </div>
                             </div>
