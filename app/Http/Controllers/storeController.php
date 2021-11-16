@@ -131,5 +131,14 @@ class storeController extends Controller
                 ]
             );
         }
-     }
+    }
+
+    public function order()
+    {
+        $order = DB::table('medical_order')
+                ->join('medical_department', 'medical_department.dept_id', '=', 'medical_order.order_dept_id')
+                ->join('order_status', 'order_status.status_id', '=', 'medical_order.order_status')
+                ->get();
+        return view('store.order',['order'=>$order]);
+    }
 }

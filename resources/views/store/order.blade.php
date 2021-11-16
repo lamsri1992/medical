@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                                 <div class="d-grid gap-2">
-                                    <a href="/store" class="btn btn-dark btn-lg">
+                                    <a href="/store" class="btn btn-light btn-lg">
                                         <i class="fa fa-clipboard-check"></i> บิลเวชภัณฑ์
                                     </a>
                                 </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                                 <div class="d-grid gap-2">
-                                    <a href="/store/order" class="btn btn-light btn-lg">
+                                    <a href="/store/order" class="btn btn-dark btn-lg">
                                         <i class="fa fa-clipboard-list"></i> รายการเบิก
                                     </a>
                                 </div>
@@ -45,31 +45,32 @@
                         </div>
                     </div>
                     <div class="card-body" style="margin-top: -2.5rem;">
-                        <table id="tableBasic" class="table table-borderless text-xs nowrap display">
+                        <table id="tableBasic" class="table table-borderless text-xs nowrap display text-center">
                             <thead class="bg-dark text-white">
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th>เลขที่ใบรับ</th>
-                                    <th class="text-center">วันที่รับของ</th>
-                                    <th>งบประมาน</th>
-                                    <th>วิธีจัดซื้อ</th>
-                                    <th>บริษัท</th>
-                                    <th>มูลค่า</th>
-                                    <th class="text-center"><i class="fa fa-bars"></i></th>
+                                    <th>ID</th>
+                                    <th>เลขที่ใบเบิก</th>
+                                    <th>วันที่ใบเบิก</th>
+                                    <th>ฝ่าย/หน่วยงาน</th>
+                                    <th>สถานะ</th>
+                                    <th><i class="fa fa-bars"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($list as $res)
+                                @foreach ($order as $orders)
                                 <tr>
-                                    <td class="text-center">{{ $res->bill_id }}</td>
-                                    <td>{{ $res->bill_order_no }}</td>
-                                    <td class="text-center">{{ DateThai($res->bill_date_in) }}</td>
-                                    <td>{{ $res->bud_name }}</td>
-                                    <td>{{ $res->pur_name }}</td>
-                                    <td>{{ $res->comp_name }}</td>
-                                    <td>{{ '฿ '.number_format($res->bill_cost,2) }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('store.show',$res->bill_id) }}" class="badge bg-warning">
+                                    <td>{{ $orders->order_id }}</td>
+                                    <td>{{ $orders->order_no }}</td>
+                                    <td>{{ DateThai($orders->order_date) }}</td>
+                                    <td>{{ $orders->dept_name }}</td>
+                                    <td>
+                                        <span class="badge bg-{{ $orders->status_color }}">
+                                            <i class="fa fa-{{ $orders->status_icon }}"></i>
+                                            {{ $orders->status_text }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('store.order_show',$orders->order_id) }}" class="badge bg-warning">
                                             <i class="fa fa-search"></i> รายละเอียด
                                         </a>
                                     </td>

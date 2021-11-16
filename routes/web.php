@@ -33,8 +33,10 @@ Route::group(['prefix' => 'store'], function () {
 	Route::get('/','storeController@index');
 	Route::get('/receive','storeController@receive');
 	Route::get('/withdraw','storeController@withdraw');
+	Route::get('/order','storeController@order');
     Route::get('/add','storeController@add')->name('store.add');
     Route::get('/take','storeController@take')->name('store.take');
 	Route::get('/{id}','storeController@show')->name('store.show');
+	Route::get('/order/{id}','storeController@order_show')->name('store.order_show');
     Route::post('/getMed','storeController@getMedical')->name('store.getMed');
 });

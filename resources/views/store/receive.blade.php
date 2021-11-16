@@ -24,6 +24,13 @@
                         <div class="row">
                             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                                 <div class="d-grid gap-2">
+                                    <a href="/store" class="btn btn-light btn-lg">
+                                        <i class="fa fa-clipboard-check"></i> บิลเวชภัณฑ์
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                <div class="d-grid gap-2">
                                     <a href="/store/receive" class="btn btn-dark btn-lg">
                                         <i class="fa fa-cart-plus"></i> รับเข้าเวชภัณฑ์
                                     </a>
@@ -33,13 +40,6 @@
                                 <div class="d-grid gap-2">
                                     <a href="/store/withdraw" class="btn btn-light btn-lg">
                                         <i class="fa fa-cart-arrow-down"></i> เบิกจ่ายเวชภัณฑ์
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                                <div class="d-grid gap-2">
-                                    <a href="/store/stockcard" class="btn btn-light btn-lg">
-                                        <i class="fa fa-clipboard-check"></i> ใบคุมคลังเวชภัณฑ์
                                     </a>
                                 </div>
                             </div>
@@ -142,8 +142,8 @@
                                     </div>
                                     <div class="table-responsive p-0">
                                         <table id="dynamicAddRemove" class="table table-striped table-borderless compact">
-                                            <thead>
-                                                <tr class="text-secondary text-xxs font-weight-bolder text-center">
+                                            <thead class="bg-dark text-white">
+                                                <tr class="text-xxs text-center">
                                                     <th width="35%">รายการเวชภัณฑ์</th>
                                                     <th>จำนวน</th>
                                                     <th>ราคา</th>
