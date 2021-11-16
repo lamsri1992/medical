@@ -12,13 +12,15 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">มูลค่าคงคลัง</p>
-                            <h4 class="mb-0">x บาท</h4>
+                            <h4 class="mb-0">{{ number_format($med->total,2) }} บาท</h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
-                        <p class="mb-0"><span class="text-success text-sm font-weight-bolder"><i
-                                    class="fa fa-plus-circle"></i> 15%</span>
+                        <p class="mb-0">
+                            <span class="text-success text-sm font-weight-bolder">
+                                <i class="fa fa-plus-circle"></i> 3%
+                            </span>
                             <small>จากเดือนที่แล้ว</small>
                         </p>
                     </div>
@@ -33,16 +35,17 @@
                         </div>
                         <div class="text-end pt-1">
                             <p class="text-sm mb-0 text-capitalize">รายการทั้งหมด</p>
-                            <h4 class="mb-0">x รายการ</h4>
+                            <h4 class="mb-0">{{ number_format($list) }} รายการ</h4>
                         </div>
                     </div>
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
                         <p class="mb-0">
-                            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"><i
-                                        class="fa fa-plus-circle"></i> 3%</span>
-                                <small>จากเดือนที่แล้ว</small>
-                            </p>
+                            <span class="text-success text-sm font-weight-bolder">
+                                <i class="fa fa-plus-circle"></i> 3%
+                            </span>
+                            <small>จากเดือนที่แล้ว</small>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -61,7 +64,8 @@
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
                         <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder"><i class="fa fa-plus-circle"></i> 12%
+                            <span class="text-success text-sm font-weight-bolder">
+                                <i class="fa fa-plus-circle"></i> 3%
                             </span>
                             <small>จากเดือนที่แล้ว</small>
                         </p>
@@ -83,7 +87,8 @@
                     <hr class="dark horizontal my-0">
                     <div class="card-footer p-3">
                         <p class="mb-0">
-                            <span class="text-danger text-sm font-weight-bolder"><i class="fa fa-minus-circle"></i> 9%
+                            <span class="text-success text-sm font-weight-bolder">
+                                <i class="fa fa-plus-circle"></i> 3%
                             </span>
                             <small>จากเดือนที่แล้ว</small>
                         </p>
