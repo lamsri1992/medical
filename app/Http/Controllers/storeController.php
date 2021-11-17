@@ -100,6 +100,7 @@ class storeController extends Controller
         $search = $request->search;        
         $med =  $data = DB::table('medical_store')
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->where('medical_store.store_amount', '>', 0)
                 ->where('medical_data.med_name', 'like', '%' .$search . '%')
                 ->orderBy('medical_store.store_expire', 'asc')
                 ->get();
@@ -141,4 +142,54 @@ class storeController extends Controller
                 ->get();
         return view('store.order',['order'=>$order]);
     }
+
+    public function order_show($id)
+    {
+        $order = DB::table('medical_order')
+                ->join('medical_department', 'medical_department.dept_id', '=', 'medical_order.order_dept_id')
+                ->join('order_status', 'order_status.status_id', '=', 'medical_order.order_status')
+                ->where('order_id', $id)
+                ->first();
+        $list = DB::table('medical_order_list')
+                ->join('medical_order', 'medical_order.order_id', '=', 'medical_order_list.list_order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->where('list_order_id', $id)
+                ->get();
+        return view('store.order_show',['order'=>$order,'list'=>$list]);
+    }
+
+    public function confirm($id)
+    {
+        $order = DB::table('medical_order')->where('order_id', $id)->first();
+        $store = DB::table('medical_store')->get();
+        $result = DB::select("SELECT medical_order_list.list_id,medical_store.store_id,medical_store.store_med_code,
+                                     medical_store.store_amount,medical_order_list.list_amount,
+                                     medical_store.store_amount - medical_order_list.list_amount AS new_amount,medical_store.store_price,
+                                     (medical_store.store_amount - medical_order_list.list_amount) * medical_store.store_price AS new_total,
+                                     medical_store.store_total
+                              FROM medical_order_list
+                              LEFT JOIN medical_store ON medical_store.store_id = medical_order_list.list_store_id
+                              WHERE medical_order_list.list_order_id = $id");
+        // return response()->json($result);
+
+        DB::table('medical_order')->where('order_id', $id)->update(
+                [
+                    'order_id' => $id,
+                    'order_status' => 2,
+                    'order_confirm' => date('Y-m-d'),
+                ]
+            );
+
+        foreach($result as $res){
+            DB::table('medical_store')->where('store_id', $res->store_id)->update(
+                [
+                    'store_amount' => $res->new_amount,
+                    'store_total' => $res->new_total
+                ]
+            );
+        }
+        return back()->with('success','ยืนยันรายการเบิกจ่ายสำเร็จ เลขที่ใบเบิก : '.$order->order_no);
+    }
+
 }
