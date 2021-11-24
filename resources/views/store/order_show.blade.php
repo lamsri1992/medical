@@ -107,7 +107,9 @@
                                         <td class="text-center">{{ $lists->store_lot_no }}</td>
                                         <td class="text-center">{{ DateThai($lists->store_expire) }}</td>
                                         <td class="text-center font-weight-bold" {{ $hide }}>{{ $lists->store_amount }}</td>
-                                        <td class="text-center font-weight-bold text-info">{{ $lists->list_amount }}</td>
+                                        <td class="text-center">
+                                            <input type="text" name="list_amount" class="text-center font-weight-bold text-info" value="{{ $lists->list_amount }}" style="width: 5rem;">
+                                        </td>
                                         <td class="text-center text-danger font-weight-bold" {{ $hide }}>
                                             {{ $lists->store_amount - $lists->list_amount }}
                                         </td>

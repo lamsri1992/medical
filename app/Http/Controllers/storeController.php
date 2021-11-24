@@ -95,8 +95,8 @@ class storeController extends Controller
         return view('store.withdraw',['data'=>$data,'dept'=>$dept]);
     }
 
-    public function getMedical(Request $request){
-
+    public function getMedical(Request $request)
+    {
         $search = $request->search;        
         $med =  $data = DB::table('medical_store')
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
