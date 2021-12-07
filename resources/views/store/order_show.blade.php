@@ -88,12 +88,14 @@
                                     @php $hide = 'hidden'; @endphp
                                     @endif
                                     <tr>
+                                        <th class="text-center">รหัส</th>
                                         <th width="30%">รายการเวชภัณฑ์</th>
-                                        <th class="text-center">ราคา/หน่วย</th>
-                                        <th class="text-center">LOT_NO</th>
-                                        <th class="text-center">วันหมดอายุ</th>
-                                        <th class="text-center" {{ $hide }}>คงเหลือ</th>
                                         <th class="text-center">จำนวนเบิก</th>
+                                        <th class="text-center">ราคา</th>
+                                        <th class="text-center">รวม</th>
+                                        <th class="text-center">คงเหลือ</th>
+                                        <th class="text-center">LOT_NO</th>
+                                        {{-- <th class="text-center">วันหมดอายุ</th> --}}
                                         <th class="text-center" {{ $hide }}>จำนวนคงเหลือ (หลังเบิกจ่าย)</th>
                                     </tr>
                                 </thead>
@@ -102,14 +104,16 @@
                                     @foreach ($list as $lists)
                                     @php $total += $lists->store_price * $lists->list_amount; @endphp
                                     <tr>
+                                        <td class="text-center">{{ $lists->med_code }}</td>
                                         <td>{{ $lists->med_name." / ".$lists->med_unit }}</td>
-                                        <td class="text-center">{{ number_format($lists->store_price,2) }}</td>
-                                        <td class="text-center">{{ $lists->store_lot_no }}</td>
-                                        <td class="text-center">{{ DateThai($lists->store_expire) }}</td>
-                                        <td class="text-center font-weight-bold" {{ $hide }}>{{ $lists->store_amount }}</td>
                                         <td class="text-center">
                                             <input type="text" name="list_amount" class="text-center font-weight-bold text-info" value="{{ $lists->list_amount }}" style="width: 5rem;">
                                         </td>
+                                        <td class="text-center">{{ number_format($lists->store_price,2) }}</td>
+                                        <td class="text-center">{{ number_format($lists->store_price * $lists->list_amount,2) }}</td>
+                                        <td class="text-center font-weight-bold text-danger">{{ number_format($lists->store_amount) }}</td>
+                                        <td class="text-center">{{ $lists->store_lot_no }}</td>
+                                        {{-- <td class="text-center">{{ DateThai($lists->store_expire) }}</td> --}}
                                         <td class="text-center text-danger font-weight-bold" {{ $hide }}>
                                             {{ $lists->store_amount - $lists->list_amount }}
                                         </td>
@@ -119,7 +123,7 @@
                                 <tfoot>
                                     <tr class="text-xxs font-weight-bolder bg-dark text-white">
                                         <td colspan="8" class=""> มูลค่ารวม :
-                                            <input type="text" class="form-control text-white font-weight-bold bg-dark" value="{{ $total." บาท" }}" disabled>
+                                            <input type="text" class="form-control text-white font-weight-bold bg-dark" value="{{ number_format($total,2)." บาท" }}" disabled>
                                         </td>
                                     </tr>
                                   </tfoot>
