@@ -122,9 +122,7 @@ class storeController extends Controller
             ]
         );
 
-        $cost = 0;
         foreach ($request->addField as $key => $value) {
-            $cost += $value['total'];
             DB::table('medical_order_list')->insert(
                 [
                 'list_order_id' => $id,
