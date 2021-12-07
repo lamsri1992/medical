@@ -122,7 +122,7 @@
                                 </div>
                                 <div
                                     class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                                    + 192,938.41 ฿
+                                    + {{ number_format($tran,2) }} ฿
                                 </div>
                             </li>
                             <li
@@ -137,7 +137,7 @@
                                 </div>
                                 <div
                                     class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                                    + 192,938.41 ฿
+                                    + {{ number_format($curm->total,2) }} ฿
                                 </div>
                             </li>
                             <li
@@ -152,7 +152,7 @@
                                 </div>
                                 <div
                                     class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-                                    - 632.00 ฿
+                                    - {{ number_format($ordm->total,2) }} ฿
                                 </div>
                             </li>
                             <li
@@ -166,7 +166,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                    192,306.41 ฿
+                                    {{ number_format($med->total,2) }} ฿
                                 </div>
                             </li>
                         </ul>
