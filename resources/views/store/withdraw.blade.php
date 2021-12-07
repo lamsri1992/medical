@@ -95,7 +95,6 @@
                                             <thead class="text-secondary text-xxs font-weight-bolder text-center bg-dark text-white">
                                                 <tr>
                                                     <th width="30%">รายการเวชภัณฑ์</th>
-                                                    <th>ราคา/หน่วย</th>
                                                     <th>LOT_NO</th>
                                                     <th>คงเหลือ</th>
                                                     <th>วันหมดอายุ</th>
@@ -110,12 +109,6 @@
                                                             <label class="text-secondary text-xs"></label>
                                                             <input type="text" id="g_id" name="addField[0][g_id]" hidden>
                                                             <input type="text" id="search" name="addField[0][search]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="ระบุเวชภัณฑ์">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group input-group-outline my-3">
-                                                            <label class="text-secondary text-xs"></label>
-                                                            <input type="text" id="g_price" name="addField[0][g_price]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="ราคา/หน่วย" readonly>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -197,7 +190,6 @@
                     // Set selection
                     $('#g_id'+i).val(ui.item.value);
                     $('#search'+i).val(ui.item.label);
-                    $('#g_price'+i).val(ui.item.price);
                     $('#lot'+i).val(ui.item.lot);
                     $('#amount'+i).val(ui.item.amount);
                     $('#expire'+i).val(ui.item.exp);
