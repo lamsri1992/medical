@@ -172,12 +172,24 @@ class storeController extends Controller
                               LEFT JOIN medical_store ON medical_store.store_id = medical_order_list.list_store_id
                               WHERE medical_order_list.list_order_id = $id");
         // return response()->json($result);
+        $list = DB::table('medical_order_list')
+                ->join('medical_order', 'medical_order.order_id', '=', 'medical_order_list.list_order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->where('list_order_id', $id)
+                ->get();
+
+        $total = 0;
+        foreach ($list as $lists){
+            $total += $lists->store_price * $lists->list_amount;
+        }
 
         DB::table('medical_order')->where('order_id', $id)->update(
                 [
                     'order_id' => $id,
                     'order_status' => 2,
                     'order_confirm' => date('Y-m-d'),
+                    'order_cost' => $total,
                 ]
             );
 
