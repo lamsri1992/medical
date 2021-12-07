@@ -19,7 +19,11 @@ class medicalController extends Controller
     public function store(Request $request)
     {
         $result = new medicalData;
+        $result->med_code = $request->get('mcode');
         $result->med_name = $request->get('mname');
+        $result->med_type = $request->get('mtype');
+        $result->med_content = $request->get('mdetail');
+        $result->med_unit = $request->get('munit');
         $result->save();
     }
 

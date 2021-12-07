@@ -99,7 +99,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <form id="addData">
             <div class="modal-content">
                 <div class="modal-header">
@@ -108,8 +108,24 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Code</label>
+                        <input type="text" name="mcode" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
                         <label class="form-label">ชื่อเวชภัณฑ์</label>
                         <input type="text" name="mname" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">ประเภท</label>
+                        <input type="text" name="mtype" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">รายละเอียด</label>
+                        <input type="text" name="mdetail" class="form-control" required>
+                    </div>
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">หน่วยนับ</label>
+                        <input type="text" name="munit" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
