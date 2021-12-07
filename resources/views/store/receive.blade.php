@@ -191,7 +191,7 @@
                                                     <td>
                                                         <div class="input-group input-group-outline my-3">
                                                             <label class="text-secondary text-xs"></label>
-                                                            <input type="text" name="addField[0][expire]" class="text-center form-control text-secondary text-xs font-weight-bolder basicDate" placeholder="วันหมดอายุ" readonly>
+                                                            <input type="date" name="addField[0][expire]" class="text-center form-control text-secondary text-xs" placeholder="วันหมดอายุ">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -252,7 +252,7 @@
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input id="amount'+i+'" type="text" name="addField['+i+'][amount]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="จำนวน"></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" id="price'+i+'" name="addField['+i+'][price]" class="text-center form-control text-secondary text-xs font-weight-bolder" onfocus="sum()" onblur="sum()" onchange="sum()" onkeyup="sum()" placeholder="ราคา"></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" id="total'+i+'" name="addField['+i+'][total]" class="text-center form-control text-danger text-xs font-weight-bolder" placeholder="มูลค่า" readonly></div></td>'+
-        '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" name="addField['+i+'][expire]" class="text-center form-control text-secondary text-xs font-weight-bolder basicDate'+i+'" placeholder="วันหมดอายุ" readonly></div></td>'+
+        '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="date" name="addField['+i+'][expire]" class="text-center form-control text-secondary text-xs'+i+'" placeholder="วันหมดอายุ"></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" name="addField['+i+'][lot]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="LOT_NO"></div></td>'+
         '<td><button type="button" class="btn btn-sm btn-danger remove-input-field" style="margin-top: 1.2rem;"><i class="fa fa-minus"></i></button></td></tr>');
         

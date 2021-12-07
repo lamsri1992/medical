@@ -52,6 +52,7 @@
                                     <th>เลขที่ใบเบิก</th>
                                     <th>วันที่ใบเบิก</th>
                                     <th>ฝ่าย/หน่วยงาน</th>
+                                    <th>มูลค่า</th>
                                     <th>สถานะ</th>
                                     <th><i class="fa fa-bars"></i></th>
                                 </tr>
@@ -63,6 +64,7 @@
                                     <td>{{ $orders->order_no }}</td>
                                     <td>{{ DateThai($orders->order_date) }}</td>
                                     <td>{{ $orders->dept_name }}</td>
+                                    <td>{{ $orders->order_cost }}</td>
                                     <td>
                                         <span class="badge bg-{{ $orders->status_color }}">
                                             <i class="fa fa-{{ $orders->status_icon }}"></i>
