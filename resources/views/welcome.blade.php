@@ -181,7 +181,7 @@
                                 <h6 class="mb-0"><i class="fa fa-file-download"></i> รายการรับเข้า</h6>
                             </div>
                             <div class="col-6 text-end">
-                                <button class="btn btn-outline-primary btn-sm mb-0">ดูทั้งหมด</button>
+                                <a href="/store" class="btn btn-outline-primary btn-sm mb-0">ดูทั้งหมด</a>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                                 <h6 class="mb-0"><i class="fa fa-file-upload"></i> รายการเบิกจ่าย</h6>
                             </div>
                             <div class="col-6 text-end">
-                                <button class="btn btn-outline-primary btn-sm mb-0">ดูทั้งหมด</button>
+                                <a href="/store/order" class="btn btn-outline-primary btn-sm mb-0">ดูทั้งหมด</a>
                             </div>
                         </div>
                     </div>
