@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white">
+                <a href="/report" class="nav-link {{ (request()->is('report*')) ? 'active bg-primary' : '' }} text-white">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-folder-open"></i>
                     </div>

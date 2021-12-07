@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','dashboardController@index');
+Route::get('/report','reportController@index');
 Route::group(['prefix' => 'config'], function () {
 	Route::get('/type','typeController@index');
     Route::get('/type_add','typeController@store')->name('config.type_add');
