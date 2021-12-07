@@ -201,7 +201,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="dynamic-ar" type="button" class="btn btn-sm btn-info" style="margin-top: 1.2rem;">
+                                                        <button type="button" class="btn btn-sm btn-info" style="margin-top: 1.2rem;" disabled>
                                                             <i class="fa fa-plus"></i>
                                                         </button>
                                                     </td>
@@ -216,9 +216,14 @@
                                               </tfoot>
                                         </table>
                                     </div>
-                                    <button class="btn btn-success">
-                                        <i class="fa fa-save"></i> บันทึกข้อมูลรับเข้าเวชภัณฑ์
-                                    </button>
+                                    <div class="text-center">
+                                        <button id="dynamic-ar" type="button" class="btn btn-info">
+                                            <i class="fa fa-plus-circle"></i> เพิ่มแถว
+                                        </button>
+                                        <button class="btn btn-success">
+                                            <i class="fa fa-save"></i> บันทึกข้อมูลรับเข้าเวชภัณฑ์
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
