@@ -32,7 +32,7 @@ class reportController extends Controller
 
     public function stockcard(Request $request)
     {
-        $med =  $data = DB::table('medical_store')
+        $med = DB::table('medical_store')
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
                 ->get();
         return view('report.stockcard',['med'=>$med]);
@@ -64,5 +64,33 @@ class reportController extends Controller
                 ORDER BY medical_department.dept_id ASC"));
         
         return view('report.summary',['cost'=>$cost,'num'=>$num,'list'=>$list]);
+    }
+
+    public function history(Request $request)
+    {
+        $date_start =  $request->get('date_start');
+        $date_end =  $request->get('date_end');
+        $ds = Date("Y-m-d", strtotime("$date_start -1 Month"));
+        $dn = Date("Y-m-d", strtotime("$date_start -1 Month +29 Days"));
+
+        $med =  DB::select(DB::raw("SELECT *,
+                (SELECT SUM(medical_store.store_amount) FROM medical_store
+                WHERE medical_store.store_med_code = medical_data.med_code 
+                AND medical_store.create_at BETWEEN '$ds' AND '$dn') AS carry,
+                (SELECT SUM(medical_store.store_amount) FROM medical_store
+                WHERE medical_store.store_med_code = medical_data.med_code 
+                AND medical_store.create_at BETWEEN '$date_start' AND '$date_end') AS receives,
+                (SELECT SUM(medical_order_list.list_amount) FROM medical_order_list
+                WHERE medical_order_list.list_store_id = medical_store.store_id 
+                AND medical_order_list.list_date BETWEEN '$date_start' AND '$date_end') AS paid,
+                (SELECT SUM(medical_store.store_amount) FROM medical_store
+                WHERE medical_store.store_med_code = medical_data.med_code) AS totals
+                FROM medical_data
+                LEFT JOIN medical_store ON medical_store.store_med_code = medical_data.med_code
+                LEFT JOIN medical_order_list ON medical_order_list.list_store_id = medical_store.store_id
+                LEFT JOIN medical_order ON medical_order.order_id = medical_order_list.list_order_id
+                ORDER BY medical_data.med_id DESC"));
+
+        return view('report.history',['med'=>$med]);
     }
 }

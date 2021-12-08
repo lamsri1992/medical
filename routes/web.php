@@ -49,4 +49,5 @@ Route::group(['prefix' => 'report'], function () {
 	Route::get('/','reportController@index');
 	Route::get('/stockcard','reportController@stockcard')->name('report.stockcard');
 	Route::get('/summary','reportController@summary')->name('report.summary');
+	Route::get('/history','reportController@history')->name('report.history');
 });
