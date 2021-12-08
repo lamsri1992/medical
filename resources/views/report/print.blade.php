@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-4" style="margin-top: 0.5rem;">
                 <span style="font-weight: bold;">วันที่ใบเบิก</span>
-                <span style="">{{ DateThai($order->order_date) }}</span>
+                <span style="">{{ DateThaiFull($order->order_date) }}</span>
             </div>
             <div class="col-md-8" style="margin-top: 0.5rem;">
                 <span style="">ข้าพเจ้าขอเบิกเวชภัณฑ์/พัสดุตามรายการที่แนบมาเพื่อใช้ในงาน</span>
