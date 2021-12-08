@@ -63,30 +63,32 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                            <div class="d-flex flex-column justify-content-center">
-                                                                <p class="text-secondary mb-0">
-                                                                    รายงานสรุปการเบิกจ่าย
-                                                                </p>
+                                                    <form action="{{ route('report.summary') }}" target="_blank">
+                                                        <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="text-secondary mb-0">
+                                                                        รายงานสรุปการเบิกจ่าย
+                                                                    </p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="align-middle text-center text-sm">
-                                                        <input type="text" name="date_start"
-                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
-                                                            placeholder="เลือกวันที่" required>
-                                                    </td>
-                                                    <td class="align-middle text-center text-sm">
-                                                        <input type="text" name="date_end"
-                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
-                                                            placeholder="เลือกวันที่" required>
-                                                    </td>
-                                                    <td class="align-middle">
-                                                        <button type="submit" class="badge btn-success text-white text-xxs">
-                                                            <i class="fa fa-print"></i> รายงาน
-                                                        </button>
-                                                    </td>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <input type="text" name="date_start"
+                                                                class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                                placeholder="เลือกวันที่" required>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <input type="text" name="date_end"
+                                                                class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                                placeholder="เลือกวันที่" required>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <button type="submit" class="badge btn-success text-white text-xxs">
+                                                                <i class="fa fa-print"></i> รายงาน
+                                                            </button>
+                                                        </td>
+                                                    </form>
                                                 </tr>
                                                 <tr>
                                                     <td>
