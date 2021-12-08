@@ -95,31 +95,34 @@
                                         <th class="text-center">รวม</th>
                                         <th class="text-center">คงเหลือ</th>
                                         <th class="text-center">LOT_NO</th>
-                                        {{-- <th class="text-center">วันหมดอายุ</th> --}}
                                         <th class="text-center" {{ $hide }}>จำนวนคงเหลือ (หลังเบิกจ่าย)</th>
                                     </tr>
                                 </thead>
+                                <form id="frmEdit">
                                 <tbody class="text-sm">
-                                    @php $total = 0; @endphp
+                                    @php $total = 0; $i = 0; @endphp
                                     @foreach ($list as $lists)
-                                    @php $total += $lists->store_price * $lists->list_amount; @endphp
+                                    @php $total += $lists->store_price * $lists->list_amount; $i++; @endphp
                                     <tr>
                                         <td class="text-center">{{ $lists->med_code }}</td>
                                         <td>{{ $lists->med_name." / ".$lists->med_unit }}</td>
                                         <td class="text-center">
-                                            <input type="text" name="list_amount" class="text-center font-weight-bold text-info" value="{{ $lists->list_amount }}" style="width: 5rem;">
+                                            <input type="hidden" name="addField[{{ $i }}][id]" class="text-center font-weight-bold text-info" 
+                                            value="{{ $lists->list_id }}" style="width: 5rem;">
+                                            <input type="text" name="addField[{{ $i }}][list_amount]" class="text-center font-weight-bold text-info" 
+                                            value="{{ $lists->list_amount }}" style="width: 5rem;">
                                         </td>
                                         <td class="text-center">{{ number_format($lists->store_price,2) }}</td>
                                         <td class="text-center">{{ number_format($lists->store_price * $lists->list_amount,2) }}</td>
                                         <td class="text-center font-weight-bold text-danger">{{ number_format($lists->store_amount) }}</td>
                                         <td class="text-center">{{ $lists->store_lot_no }}</td>
-                                        {{-- <td class="text-center">{{ DateThai($lists->store_expire) }}</td> --}}
                                         <td class="text-center text-danger font-weight-bold" {{ $hide }}>
                                             {{ $lists->store_amount - $lists->list_amount }}
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                </form>
                                 <tfoot>
                                     <tr class="text-xxs font-weight-bolder bg-dark text-white">
                                         <td colspan="8" class=""> มูลค่ารวม :
@@ -146,7 +149,7 @@
                                         })">
                                         <i class="far fa-check-circle"></i> ยืนยันรายการเบิกจ่าย
                                     </a>
-                                    <button class="btn btn-warning">
+                                    <button id="btn_edit" class="btn btn-warning">
                                         <i class="far fa-edit"></i> แก้ไขรายการเบิกจ่าย
                                     </button>
                                     <button class="btn btn-danger">
@@ -170,5 +173,35 @@
 </div>
 @endsection
 @section('script')
-
+<script>
+     $('#btn_edit').on("click", function (event) {
+        event.preventDefault();
+        Swal.fire({
+            title: 'แก้ไขใบรายการเบิก',
+            text: 'เลขที่ใบเบิก {{ $order->order_no }}',
+            showCancelButton: true,
+            confirmButtonText: `<i class='far fa-check-circle'></i> ยืนยัน`,
+            cancelButtonText: `<i class='far fa-times-circle'></i> ยกเลิก`,
+            icon: 'warning',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "{{ route('store.edit') }}",
+                    data: $('#frmEdit').serialize(),
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'แก้ไขข้อมูลเบิกจ่ายเวชภัณฑ์สำเร็จ',
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        window.setTimeout(function () {
+                            location.reload()
+                        }, 2500);
+                    }
+                });
+            }
+        })
+    });
+</script>
 @endsection

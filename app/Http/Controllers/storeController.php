@@ -134,6 +134,19 @@ class storeController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+       foreach ($request->addField as $key => $value) {
+        // echo $value['id'];
+        // echo $value['list_amount'];
+            DB::table('medical_order_list')->where('list_id', $value['id'])->update(
+               [
+               'list_amount' => $value['list_amount']
+               ]
+           );
+       }
+   }
+
     public function order()
     {
         $order = DB::table('medical_order')

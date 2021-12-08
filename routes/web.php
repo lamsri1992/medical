@@ -37,6 +37,7 @@ Route::group(['prefix' => 'store'], function () {
 	Route::get('/order','storeController@order');
     Route::get('/add','storeController@add')->name('store.add');
     Route::get('/take','storeController@take')->name('store.take');
+    Route::get('/edit','storeController@edit')->name('store.edit');
 	Route::get('/{id}','storeController@show')->name('store.show');
 	Route::get('/confirm/{id}','storeController@confirm')->name('store.confirm');
 	Route::get('/order/{id}','storeController@order_show')->name('store.order_show');
