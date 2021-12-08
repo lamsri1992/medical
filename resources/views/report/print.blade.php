@@ -22,35 +22,35 @@
             <h5 style="font-weight: bold;">ใบเบิกเวชภัณฑ์/พัสดุ</h5>
         </div>
         <div class="row">
-            <div class="col-md-8" style="margin-top: 0.5rem;">
+            <div class="col-md-8" style="margin-top: 1rem;">
                 <span style="font-weight: bold;">หน่วยงาน</span>
                 <span style="">{{ $order->dept_name }}</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="font-weight: bold;">เลขที่ใบเบิก</span>
                 <span style="">{{ $order->order_no }}</span>
             </div>
-            <div class="col-md-8" style="margin-top: 0.5rem;">
+            <div class="col-md-8" style="margin-top: 1rem;">
                 <span style="font-weight: bold;">ถึง</span>
                 <span style="">เจ้าหน้าที่พัสดุ</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="font-weight: bold;">วันที่ใบเบิก</span>
                 <span style="">{{ DateThaiFull($order->order_date) }}</span>
             </div>
-            <div class="col-md-8" style="margin-top: 0.5rem;">
+            <div class="col-md-8" style="margin-top: 1rem;">
                 <span style="">ข้าพเจ้าขอเบิกเวชภัณฑ์/พัสดุตามรายการที่แนบมาเพื่อใช้ในงาน</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="">และต้องการใช้สิ่งของนี้ภายใน</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="">วันที่</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="">และมอบให้</span>
             </div>
-            <div class="col-md-4" style="margin-top: 0.5rem;">
+            <div class="col-md-4" style="margin-top: 1rem;">
                 <span style="">เป็นผู้รับแทนข้าพเจ้า</span>
             </div>
         </div>
@@ -95,62 +95,66 @@
             </table>
         </div>
         <div class="row">
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                ลงชื่อ
             </div>
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                ผู้เบิก ตำแหน่ง
             </div>
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                 ลงชื่อ
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
                 ผู้จ่าย ตำแหน่ง
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
                 (.......................................................................)
-             </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
                 วันที่
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
-                (.......................................................................)
+             <div class="col-md-3" style="margin-top: 1rem;">
+                
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
+                (.......................................................................)
                 วันที่
+             </div>
+             <div class="col-md-3" style="margin-top: 1rem;">
+                
              </div>
         </div>
         <div class="row">
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                ลงชื่อ
             </div>
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                ผู้สั่งจ่าย ตำแหน่ง
             </div>
-            <div class="col-md-3" style="margin-top: 0.5rem;">
+            <div class="col-md-3" style="margin-top: 1rem;">
                 ลงชื่อ
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
                 ผู้รับ ตำแหน่ง
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
                 (.......................................................................)
-             </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
                 วันที่
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
-                (.......................................................................)
+             <div class="col-md-3" style="margin-top: 1rem;">
+                
              </div>
-             <div class="col-md-3" style="margin-top: 0.5rem;">
+             <div class="col-md-3" style="margin-top: 1rem;">
+                (.......................................................................)
                 วันที่
+             </div>
+             <div class="col-md-3" style="margin-top: 1rem;">
+                
              </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        window.print();
+        // window.print();
     </script>
 </body>
 
