@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Models\departmentData;
-use FPDF;
 
 class reportController extends Controller
 {
@@ -30,12 +29,6 @@ class reportController extends Controller
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
                 ->where('list_order_id', $id)
                 ->get();
-        // return dd($order,$list);
-        
-        $pdf = app('Fpdf');
-        $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(40,10,'Hello World!');
-        $pdf->Output();
+        return view('report.print',['order'=>$order,'list'=>$list]);
     }
 }
