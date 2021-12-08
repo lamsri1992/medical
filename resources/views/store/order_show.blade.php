@@ -160,7 +160,12 @@
                                 <div class="text-center">
                                     <div class="alert alert-primary text-white" role="alert">
                                         <p>รายการใบเบิก : {{ $order->order_no }} ถูกดำเนินการแล้ว</p>
-                                        <small>เมื่อวันที่ {{ DateThai($order->order_confirm) }}</small>
+                                        <small>วันที่ดำเนินการ {{ DateThai($order->order_confirm) }}</small>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="{{ route('store.report_order',$order->order_id) }}" target="_blank" class="btn btn-secondary">
+                                            <i class="fa fa-print text-xs"></i> พิมพ์ใบเบิกเวชภัณฑ์
+                                        </a>
                                     </div>
                                 </div>
                             @endif

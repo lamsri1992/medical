@@ -41,5 +41,6 @@ Route::group(['prefix' => 'store'], function () {
 	Route::get('/{id}','storeController@show')->name('store.show');
 	Route::get('/confirm/{id}','storeController@confirm')->name('store.confirm');
 	Route::get('/order/{id}','storeController@order_show')->name('store.order_show');
+	Route::get('/report/{id}','reportController@report_order')->name('store.report_order');
     Route::post('/getMed','storeController@getMedical')->name('store.getMed');
 });
