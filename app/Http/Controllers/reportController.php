@@ -93,4 +93,89 @@ class reportController extends Controller
 
         return view('report.history',['med'=>$med]);
     }
+
+    public function month(Request $request)
+    {
+        $curm = DB::table('medical_bill')
+                ->select(DB::raw('SUM(bill_cost) as total'))
+                ->whereMonth('bill_date_in', $request->get('emonth'))
+                ->first();
+
+        $uc = DB::table('medical_bill')
+                ->select(DB::raw('SUM(bill_cost) as total'))
+                ->whereMonth('bill_date_in', $request->get('emonth'))
+                ->where('bill_budget_id', 1)
+                ->first();
+
+        $dc = DB::table('medical_bill')
+                ->select(DB::raw('SUM(bill_cost) as total'))
+                ->whereMonth('bill_date_in', $request->get('emonth'))
+                ->where('bill_budget_id', 2)
+                ->first();
+
+        $total = DB::table('medical_bill')
+                ->select(DB::raw('SUM(bill_cost) as total'))
+                ->whereMonth('bill_date_in', $request->get('emonth'))
+                ->where('bill_budget_id', 2)
+                ->first();
+        
+        $med = DB::table('medical_store')
+                ->select(DB::raw('SUM(store_price * store_amount) as total'))
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->first();
+
+        $med2 = DB::table('medical_store')
+                ->select(DB::raw('SUM(store_price * store_amount) as total'))
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->where('bill_budget_id', 1)
+                ->first();
+
+        $med3 = DB::table('medical_store')
+                ->select(DB::raw('SUM(store_price * store_amount) as total'))
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->where('bill_budget_id', 2)
+                ->first();
+
+        $med4 = DB::table('medical_store')
+                ->select(DB::raw('SUM(store_price * store_amount) as total'))
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->where('bill_budget_id', 3)
+                ->first();
+
+        $ordm = DB::table('medical_order')
+                ->select(DB::raw('SUM(store_price * list_amount) as total'))
+                ->join('medical_order_list', 'medical_order_list.list_order_id', '=', 'medical_order.order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->whereMonth('order_date', $request->get('emonth'))
+                ->first();
+
+        $ordm2 = DB::table('medical_order')
+                ->select(DB::raw('SUM(store_price * list_amount) as total'))
+                ->join('medical_order_list', 'medical_order_list.list_order_id', '=', 'medical_order.order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->whereMonth('order_date', $request->get('emonth'))
+                ->where('bill_budget_id', 1)
+                ->first();
+        
+        $ordm3 = DB::table('medical_order')
+                ->select(DB::raw('SUM(store_price * list_amount) as total'))
+                ->join('medical_order_list', 'medical_order_list.list_order_id', '=', 'medical_order.order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->whereMonth('order_date', $request->get('emonth'))
+                ->where('bill_budget_id', 2)
+                ->first();
+        
+        $ordm4 = DB::table('medical_order')
+                ->select(DB::raw('SUM(store_price * list_amount) as total'))
+                ->join('medical_order_list', 'medical_order_list.list_order_id', '=', 'medical_order.order_id')
+                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
+                ->whereMonth('order_date', $request->get('emonth'))
+                ->where('bill_budget_id', 3)
+                ->first();
+        // return dd($ordm,$ordm2,$ordm3);
+        return view('report.month',['curm'=>$curm,'uc'=>$uc,'dc'=>$dc,'med'=>$med,'med2'=>$med2,'med3'=>$med3,'med4'=>$med4,'ordm'=>$ordm,'ordm2'=>$ordm2,'ordm3'=>$ordm3,'ordm4'=>$ordm4]);
+    }
 }

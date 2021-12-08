@@ -50,4 +50,5 @@ Route::group(['prefix' => 'report'], function () {
 	Route::get('/stockcard','reportController@stockcard')->name('report.stockcard');
 	Route::get('/summary','reportController@summary')->name('report.summary');
 	Route::get('/history','reportController@history')->name('report.history');
+	Route::get('/month','reportController@month')->name('report.month');
 });
