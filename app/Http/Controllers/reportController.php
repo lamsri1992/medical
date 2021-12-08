@@ -30,6 +30,6 @@ class reportController extends Controller
                 ->where('list_order_id', $id)
                 ->get();
         
-        return dd($order,$list);
+        // return dd($order,$list);
     }
 }
