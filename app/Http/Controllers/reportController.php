@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
-use App\Models\departmentData;
 
 class reportController extends Controller
 {
     public function index()
     {
-        $dept = \App\Models\departmentData::all();
-        return view('report.index',['dept'=>$dept]);
+        return view('report.index');
     }
 
     public function report_order($id)
@@ -30,5 +28,13 @@ class reportController extends Controller
                 ->where('list_order_id', $id)
                 ->get();
         return view('report.print',['order'=>$order,'list'=>$list]);
+    }
+
+    public function stockcard(Request $request)
+    {
+        $med =  $data = DB::table('medical_store')
+                ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->get();
+        return view('report.stockcard',['med'=>$med]);
     }
 }

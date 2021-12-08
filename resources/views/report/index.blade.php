@@ -15,102 +15,136 @@
                                 </div>
                             </div>
                             <div class="card-body px-0 pb-2">
-                                <div class="table-responsive p-0">
-                                    <table class="table align-items-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th width="30%"
-                                                    class="text-uppercase text-dark text-xs font-weight-bolder opacity-7">
-                                                    รายงาน
-                                                </th>
-                                                <th width="20%"
-                                                    class="text-uppercase text-dark text-xs font-weight-bolder opacity-7 ps-2">
-                                                    เลือกฝ่าย / หน่วยงาน
-                                                </th>
-                                                <th width="15%"
-                                                    class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">
-                                                    เลือกวันที่เริ่มต้น
-                                                </th>
-                                                <th width="15%"
-                                                    class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">
-                                                    เลือกวันที่สิ้นสุด
-                                                </th>
-                                                <th width="1%" class="text-dark opacity-7"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <p class="text-secondary mb-0">
-                                                                สรุปข้อมูลคลังเวชภัณฑ์มิใช่ยา
-                                                            </p>
+                                <div class="container">
+                                    <div class="table-responsive p-0" style=" border-radius: 5px;">
+                                        <table class="table align-items-center mb-0">
+                                            <thead class="bg-dark">
+                                                <tr>
+                                                    <th width="30%"
+                                                        class="text-uppercase text-white text-xs font-weight-bolder">
+                                                        <i class="fa fa-file-alt"></i> ชื่อรายงาน
+                                                    </th>
+                                                    <th width="15%"
+                                                        class="text-center text-uppercase text-white text-xs font-weight-bolder">
+                                                        <i class="fa fa-calendar-day"></i> เลือกวันที่เริ่มต้น
+                                                    </th>
+                                                    <th width="15%"
+                                                        class="text-center text-uppercase text-white text-xs font-weight-bolder">
+                                                        <i class="fa fa-calendar-day"></i> เลือกวันที่สิ้นสุด
+                                                    </th>
+                                                    <th width="1%" class="text-white"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="text-secondary mb-0">
+                                                                    สรุปข้อมูลคลังเวชภัณฑ์มิใช่ยา
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <select name="order_dept_id" class="basic-select2" required>
-                                                        <option></option>
-                                                        @foreach($dept as $ds)
-                                                            <option value="{{ $ds->dept_id }}">{{ $ds->dept_name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <input type="text" name="date"
-                                                        class="text-center form-control text-secondary basicDate text-xs"
-                                                        placeholder="เลือกวันที่" readonly>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <input type="text" name="date"
-                                                        class="text-center form-control text-secondary basicDate text-xs"
-                                                        placeholder="เลือกวันที่" readonly>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <a href="#" class="badge bg-warning text-white text-xxs">
-                                                        <i class="fa fa-print"></i> รายงาน
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <p class="text-secondary mb-0">
-                                                                รายงานสรุปการเบิกจ่าย
-                                                            </p>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_start"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_end"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle">
+                                                        <button type="submit" class="badge btn-success text-white text-xxs">
+                                                            <i class="fa fa-print"></i> รายงาน
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="text-secondary mb-0">
+                                                                    รายงานสรุปการเบิกจ่าย
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <select name="order_dept_id" class="basic-select2" required>
-                                                        <option></option>
-                                                        @foreach($dept as $ds)
-                                                            <option value="{{ $ds->dept_id }}">{{ $ds->dept_name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <input type="text" name="date"
-                                                        class="text-center form-control text-secondary basicDate text-xs"
-                                                        placeholder="เลือกวันที่" readonly>
-                                                </td>
-                                                <td class="align-middle text-center text-sm">
-                                                    <input type="text" name="date"
-                                                        class="text-center form-control text-secondary basicDate text-xs"
-                                                        placeholder="เลือกวันที่" readonly>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <a href="#" class="badge bg-warning text-white text-xxs">
-                                                        <i class="fa fa-print"></i> รายงาน
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_start"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_end"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle">
+                                                        <button type="submit" class="badge btn-success text-white text-xxs">
+                                                            <i class="fa fa-print"></i> รายงาน
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <p class="text-secondary mb-0">
+                                                                    รายงานสรุปการรับจ่ายเวชภัณฑ์
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_start"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle text-center text-sm">
+                                                        <input type="text" name="date_end"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                    </td>
+                                                    <td class="align-middle">
+                                                        <button type="submit" class="badge btn-success text-white text-xxs">
+                                                            <i class="fa fa-print"></i> รายงาน
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <form action="{{ route('report.stockcard') }}" target="_blank">
+                                                        <td>
+                                                            <div class="d-flex px-2 py-1">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <p class="text-secondary mb-0">
+                                                                        รายงานปริมาณเวชภัณฑ์คงคลัง
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <input type="text" name="date_start"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                        </td>
+                                                        <td class="align-middle text-center text-sm">
+                                                            <input type="text" name="date_end"
+                                                            class="text-center form-control text-dark basicDate text-xs bg-light"
+                                                            placeholder="เลือกวันที่" required>
+                                                        </td>
+                                                        <td class="align-middle">
+                                                            <button type="submit" class="badge btn-success text-white text-xxs">
+                                                                <i class="fa fa-print"></i> รายงาน
+                                                            </button>
+                                                        </td>
+                                                    </form>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
