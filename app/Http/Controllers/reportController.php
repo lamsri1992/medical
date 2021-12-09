@@ -73,7 +73,8 @@ class reportController extends Controller
         $ds = Date("Y-m-d", strtotime("$date_start -1 Month"));
         $dn = Date("Y-m-d", strtotime("$date_start -1 Month +29 Days"));
 
-        $med =  DB::select(DB::raw("SELECT *,
+        $med =  DB::select(DB::raw("SELECT DISTINCT medical_data.med_id,medical_data.med_code,medical_data.med_name,
+                medical_data.med_unit,medical_store.store_id,medical_store.store_price,medical_store.store_amount,
                 (SELECT SUM(medical_store.store_amount) FROM medical_store
                 WHERE medical_store.store_med_code = medical_data.med_code 
                 AND medical_store.create_at BETWEEN '$ds' AND '$dn') AS carry,
@@ -89,6 +90,7 @@ class reportController extends Controller
                 LEFT JOIN medical_store ON medical_store.store_med_code = medical_data.med_code
                 LEFT JOIN medical_order_list ON medical_order_list.list_store_id = medical_store.store_id
                 LEFT JOIN medical_order ON medical_order.order_id = medical_order_list.list_order_id
+                GROUP BY medical_data.med_id
                 ORDER BY medical_data.med_id DESC"));
 
         return view('report.history',['med'=>$med]);
