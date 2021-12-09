@@ -52,7 +52,9 @@ class reportController extends Controller
                 ->first();
 
         $list = DB::select(DB::raw("SELECT medical_department.dept_id,medical_department.dept_code,medical_department.dept_name
-                ,COUNT(medical_order_list.list_id) AS count_order_list,medical_order.order_cost AS sum_total,medical_bill.bill_budget_id AS b_type
+                ,COUNT(medical_order_list.list_id) AS count_order_list,
+                (SELECT SUM(medical_order.order_cost) FROM medical_order
+                WHERE medical_order.order_dept_id = medical_department.dept_id) AS totals
                 FROM medical_department
                 LEFT JOIN medical_order ON medical_order.order_dept_id = medical_department.dept_id
                 LEFT JOIN medical_order_list ON medical_order_list.list_order_id = medical_order.order_id
@@ -60,9 +62,9 @@ class reportController extends Controller
                 LEFT JOIN medical_bill ON medical_bill.bill_id  = medical_store.bill_id
                 LEFT JOIN medical_budget ON medical_budget.bud_id = medical_bill.bill_budget_id
                 WHERE medical_order.order_date BETWEEN '$date_start' AND '$date_end'
-                GROUP BY medical_department.dept_id,medical_department.dept_code,medical_department.dept_name,order_cost
+                GROUP BY medical_department.dept_id
                 ORDER BY medical_department.dept_id ASC"));
-        
+        // return dd($list);
         return view('report.summary',['cost'=>$cost,'num'=>$num,'list'=>$list]);
     }
 

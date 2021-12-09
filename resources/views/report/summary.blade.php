@@ -46,7 +46,7 @@
                         <td>{{ $lists->dept_code }}</td>
                         <td>{{ $lists->dept_name }}</td>
                         <td class="text-center">{{ number_format($lists->count_order_list) }}</td>
-                        <td class="text-center">{{ number_format($lists->sum_total,2) }}</td>
+                        <td class="text-center">{{ number_format($lists->totals,2) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
