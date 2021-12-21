@@ -253,7 +253,7 @@
                 lang: 'th',
             });
         });
-        $("#dynamicAddRemove").append('<tr><td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><select name="addField['+i+'][name]" class="select2'+i+'"><option></option>@foreach($data as $res)<option value="{{ $res->med_code }}">{{ str_pad($res->med_code, 3, '0', STR_PAD_LEFT)." : ".$res->med_name }}</option>@endforeach</select></div></td>'+
+        $("#dynamicAddRemove").append('<tr><td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><select name="addField['+i+'][name]" class="select2'+i+'"><option></option>@foreach($data as $res)<option value="{{ $res->med_code }}">{{ $res->med_code." : ".$res->med_name." / ".$res->med_unit }}</option>@endforeach</select></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input id="amount'+i+'" type="text" name="addField['+i+'][amount]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="จำนวน"></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" id="price'+i+'" name="addField['+i+'][price]" class="text-center form-control text-secondary text-xs font-weight-bolder" onfocus="sum()" onblur="sum()" onchange="sum()" onkeyup="sum()" placeholder="ราคา"></div></td>'+
         '<td><div class="input-group input-group-outline my-3"><label class="text-secondary text-xs"></label><input type="text" id="total'+i+'" name="addField['+i+'][total]" class="text-center form-control text-danger text-xs font-weight-bolder" placeholder="มูลค่า" readonly></div></td>'+
