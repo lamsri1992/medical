@@ -16,7 +16,7 @@ class UserController extends Controller
         
         $perm = DB::table('user_perm')
                 ->get();
-       return view('config.user.index',['user'=>$user,'perm'=>$perm]);
+       return view('config.user',['user'=>$user,'perm'=>$perm]);
     }
 
     public function user_add(Request $request)

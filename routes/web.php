@@ -27,6 +27,8 @@ Route::group(['prefix' => 'config'], function () {
     Route::get('/budget_add','budgetController@store')->name('config.budget_add');
     Route::get('/department','departmentController@index');
     Route::get('/department_add','departmentController@store')->name('config.department_add');
+    Route::get('/user','UserController@index');
+	Route::get('/user_add','UserController@user_add')->name('config.user_add');
 });
 
 Route::group(['prefix' => 'store'], function () {

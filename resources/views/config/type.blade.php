@@ -20,17 +20,17 @@
                                 </button>
                             </div>
                             <div class="table-responsive p-0">
-                                <table id="tableBasic" class="table table-striped table-borderless compact">
+                                <table id="tableBasic" class="table table-striped table-borderless text-xs">
                                     <thead>
                                         <tr>
-                                            <th class="text-secondary text-xxs font-weight-bolder text-center">
+                                            <th class="text-secondary text-center">
                                                 ID
                                             </th>
-                                            <th class="text-secondary text-xxs font-weight-bolder">
+                                            <th class="text-secondary">
                                                 ประเภทเวชภัณฑ์
                                             </th>
                                             <th
-                                                class="text-center text-secondary text-xxs font-weight-bolder">
+                                                class="text-center text-secondary">
                                                 กลุ่มรายงาน ( 01 คือยา , 02 อื่น ๆ )
                                             </th>
                                             <th class="text-secondary text-center">
@@ -42,17 +42,17 @@
                                         @foreach ($result as $res)                              
                                         <tr>
                                             <td class="text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
+                                                <span class="text-secondary ">
                                                     {{ $res->type_id }}
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="">
                                                     {{ $res->type_name }}
                                                 </span>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
+                                                <span class="text-secondary ">
                                                     {{ $res->type_report }}
                                                 </span>
                                             </td>

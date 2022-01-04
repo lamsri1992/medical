@@ -42,9 +42,17 @@
                 </a>
             </li>
             {{-- Menu Admin --}}
-            @if (Auth::user()->permission == 1)                
+            @if (Auth::user()->permission == 1)
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">ตั้งค่าระบบ</h6>
+            </li>
+            <li class="nav-item">
+                <a href="/config/user" class="nav-link text-white {{ (request()->is('config/user*')) ? 'active bg-primary' : '' }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-users opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">ตั้งค่าผู้ใช้งาน</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a href="/config/type" class="nav-link text-white {{ (request()->is('config/type*')) ? 'active bg-primary' : '' }}">
