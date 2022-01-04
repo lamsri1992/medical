@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class dashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $cdate = date('m');
@@ -48,5 +54,12 @@ class dashboardController extends Controller
 
         $tran = $cura->total - $orda->total;
         return view('welcome',['med'=>$med,'list'=>$list,'draw'=>$draw,'invs'=>$invs,'order'=>$order,'ordm'=>$ordm,'curm'=>$curm,'tran'=>$tran]);
+    }
+
+    
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

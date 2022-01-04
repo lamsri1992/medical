@@ -35,6 +35,7 @@
 
 <script src="{{ asset('jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('jquery/jquery-ui.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{ asset('material/assets/js/core/popper.min.js') }}"></script>
 <script src="{{ asset('material/assets/js/core/bootstrap.min.js') }}"></script>

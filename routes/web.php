@@ -52,3 +52,8 @@ Route::group(['prefix' => 'report'], function () {
 	Route::get('/history','reportController@history')->name('report.history');
 	Route::get('/month','reportController@month')->name('report.month');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'dashboardController@logout');

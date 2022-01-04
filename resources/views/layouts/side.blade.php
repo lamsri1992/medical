@@ -4,7 +4,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+        <a class="navbar-brand m-0" href="#"
             target="_blank">
             <img src="https://www.erp.wc-hospital.go.th/argon/img/brand/logo.png" class="navbar-brand-img h-100"
                 alt="main_logo">
@@ -41,6 +41,8 @@
                     <span class="nav-link-text ms-1">รายงานคลังเวชภัณฑ์</span>
                 </a>
             </li>
+            {{-- Menu Admin --}}
+            @if (Auth::user()->permission == 1)                
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">ตั้งค่าระบบ</h6>
             </li>
@@ -92,6 +94,8 @@
                     <span class="nav-link-text ms-1">ข้อมูลหน่วยงาน</span>
                 </a>
             </li>
+            @endif
+            {{-- End Admin --}}
         </ul>
     </div>
 </aside>

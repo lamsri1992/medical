@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "jimmyjs/laravel-report-generator": "^2.1",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "2.4"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
