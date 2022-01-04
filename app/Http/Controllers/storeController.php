@@ -197,7 +197,7 @@ class storeController extends Controller
             $total += $lists->store_price * $lists->list_amount;
         }
 
-        DB::table('medical_order')->where('order_id', $id)->update(
+            DB::table('medical_order')->where('order_id', $id)->update(
                 [
                     'order_id' => $id,
                     'order_status' => 2,
@@ -215,6 +215,18 @@ class storeController extends Controller
             );
         }
         return back()->with('success','ยืนยันรายการเบิกจ่ายสำเร็จ เลขที่ใบเบิก : '.$order->order_no);
+    }
+
+    public function cancel($id)
+    {
+        $order = DB::table('medical_order')->where('order_id', $id)->first();
+        DB::table('medical_order')->where('order_id', $id)->update(
+            [
+                'order_status' => 3,
+                'order_confirm' => date('Y-m-d'),
+            ]
+        );
+        return back()->with('cancel','ยกเลิกรายการเบิกจ่ายสำเร็จ เลขที่ใบเบิก : '.$order->order_no);
     }
 
 }

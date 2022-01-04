@@ -50,6 +50,11 @@
                             <small><i class="fa fa-check-circle"></i> {{ $message }}</small>
                         </div>
                         @endif
+                        @if($message = Session::get('cancel'))
+                        <div id="alert" class="alert alert-danger text-white" role="alert">
+                            <small><i class="fa fa-times-circle"></i> {{ $message }}</small>
+                        </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="input-group input-group-outline my-3 is-filled">
@@ -152,9 +157,22 @@
                                     <button id="btn_edit" class="btn btn-warning">
                                         <i class="far fa-edit"></i> แก้ไขรายการเบิกจ่าย
                                     </button>
-                                    <button class="btn btn-danger">
+                                    <a href="#" class="btn btn-danger"
+                                        onclick=
+                                        "Swal.fire({
+                                            title: 'ยกเลิกรายการเบิกจ่าย',
+                                            text: 'เลขที่ใบเบิก {{ $order->order_no }}',
+                                            showCancelButton: true,
+                                            confirmButtonText: `<i class='far fa-check-circle'></i> ยืนยัน`,
+                                            cancelButtonText: `<i class='far fa-times-circle'></i> ยกเลิก`,
+                                            icon: 'error',
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location = '{{ route('store.cancel',$order->order_id) }}';
+                                            }
+                                        })">
                                         <i class="far fa-times-circle"></i> ยกเลิกรายการเบิกจ่าย
-                                    </button>
+                                    </a>
                                 </div>
                             @else
                                 <div class="text-center">
@@ -162,11 +180,13 @@
                                         <p>รายการใบเบิก : {{ $order->order_no }} ถูกดำเนินการแล้ว</p>
                                         <small>วันที่ดำเนินการ {{ DateThai($order->order_confirm) }}</small>
                                     </div>
+                                    @if ($order->order_status == 2)
                                     <div class="text-center">
                                         <a href="{{ route('store.report_order',$order->order_id) }}" target="_blank" class="btn btn-secondary">
                                             <i class="fa fa-print text-xs"></i> พิมพ์ใบเบิกเวชภัณฑ์
                                         </a>
                                     </div>
+                                    @endif
                                 </div>
                             @endif
                         </div>
