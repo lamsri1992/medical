@@ -54,6 +54,14 @@ Route::group(['prefix' => 'report'], function () {
 	Route::get('/month','reportController@month')->name('report.month');
 });
 
+Route::group(['prefix' => 'user'], function () {
+	Route::get('/','UserController@index');
+	Route::get('/profile/{id}','UserController@profile')->name('user.profile');
+	Route::get('/{id}','UserController@change')->name('user.change');
+	Route::get('/user/pass/{id}','UserController@save_pass')->name('user.save_pass');
+	Route::get('/user/edit/{id}','UserController@save_edit')->name('user.save_edit');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

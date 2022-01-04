@@ -241,6 +241,23 @@
     </div>
 </div>
 @endsection
+@php 
+    $pass = '1234'; 
+    $id = base64_encode(Auth::user()->id);
+@endphp
 @section('script')
-
+@if (password_verify($pass,Auth::user()->password))
+<script>
+    Swal.fire({
+       position: 'top-center',
+       icon: 'error',
+       title: 'รหัสผ่านเริ่มต้น',
+       text: 'กรุณาตั้งรหัสผ่านใหม่',
+       showConfirmButton: true,
+       confirmButtonText: '<a href="{{ route("user.change",$id) }}" class="text-white">เปลี่ยนรหัสผ่าน</a>',
+       allowEscapeKey : false,
+       allowOutsideClick: false
+       })
+</script>
+@endif
 @endsection

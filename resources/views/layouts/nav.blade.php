@@ -9,7 +9,7 @@
                        <i class="fa fa-user-circle"></i> {{ "สวัสดี คุณ".Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><i class="fa fa-edit"></i> ข้อมูลผู้ใช้งาน</a>
+                        <a class="dropdown-item" href="{{ route("user.change",$id) }}"><i class="fa fa-edit"></i> ข้อมูลผู้ใช้งาน</a>
                         <a class="dropdown-item" href="{{ url('logout') }}"><i class="fa fa-sign-out"></i> ออกจากระบบ</a>
                     </div>
                 </li>

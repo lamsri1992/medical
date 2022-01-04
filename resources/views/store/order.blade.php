@@ -72,7 +72,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('store.order_show',$orders->order_id) }}" class="badge bg-warning">
+                                        <a href="{{ route('store.order_show',$orders->order_id) }}" class="badge bg-secondary">
                                             <i class="fa fa-search"></i> รายละเอียด
                                         </a>
                                     </td>

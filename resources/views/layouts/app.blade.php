@@ -23,7 +23,15 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-    @include('layouts.side')
+    @php 
+        $pass = '1234'; 
+        $id = base64_encode(Auth::user()->id);
+    @endphp
+    @if (password_verify($pass,Auth::user()->password))
+        @include('layouts.side_dis')
+    @else
+        @include('layouts.side')
+    @endif
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         @include('layouts.nav')
         <div class="container-fluid py-4">

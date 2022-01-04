@@ -34,7 +34,11 @@
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                <div class="bg-primary shadow-primary border-radius-lg py-3 pe-1">
+                                    <div class="text-center">
+                                        <img src="https://www.erp.wc-hospital.go.th/argon/img/brand/logo.png"
+                                        class="img img-fluid" width="50%" alt="รพ.วัดจันทร์">
+                                    </div>
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">
                                         ระบบบริหารคลังเวชภัณฑ์
                                     </h4>
