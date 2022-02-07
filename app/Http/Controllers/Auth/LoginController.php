@@ -5,36 +5,41 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    use AuthenticatesUsers {
+        attemptLogin as baseAttemptLogin;
+    }
 
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+  
+    protected function attemptLogin(Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        config(['database.connections.database' => $request->database]);
+        
+        return $this->baseAttemptLogin($request);
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        session(['database' => $request->database]);
+    }
+
+   protected function validateLogin(Request $request)
+   {
+      $request->validate([
+         'database' => [
+            'required',
+            Rule::in(['mysql', 'pharma']),
+         ],
+         $this->username() => 'required|string',
+         'password' => 'required|string',
+      ]);
+   }
 }

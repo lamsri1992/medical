@@ -22,6 +22,8 @@
     <link id="pagestyle"
         href="{{ asset('material/assets/css/material-dashboard.css?v=3.0.0') }}"
         rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('jquery/jquery-ui.css') }}">
 </head>
 
 <body class="bg-gray-200">
@@ -63,6 +65,13 @@
                                         <input class="form-check-input" type="checkbox" id="rememberMe">
                                         <label class="form-check-label mb-0 ms-2" for="rememberMe">จดจำการเข้าสู่ระบบ</label>
                                     </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <select name="database" class="form-control" required>
+                                            <option>เลือกฐานข้อมูล</option>
+                                            <option value="mysql">กลุ่มการพยาบาล</option>
+                                            <option value="pharma">กลุ่มงานเภสัชกรรม</option>
+                                        </select>
+                                    </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
                                             เข้าใช้งานระบบ
@@ -82,6 +91,9 @@
         </div>
     </main>
     <!--   Core JS Files   -->
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('jquery/jquery-ui.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('material/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('material/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('material/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
@@ -97,6 +109,16 @@
 
     </script>
     <script src="{{ asset('material/assets/js/material-dashboard.min.js?v=3.0.0') }}"></script>
+    <script>
+    // SELECT2
+    $(document).ready(function() {
+        $('.basic-select2').select2({ 
+            width: '100%',
+            placeholder: 'กรุณาเลือกฐานข้อมูล',
+            minimumResultsForSearch: Infinity
+        });
+    });
+    </script>
 </body>
 
 </html>
