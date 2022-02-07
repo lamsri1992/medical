@@ -260,4 +260,16 @@
        })
 </script>
 @endif
+<script>
+    Swal.fire({
+       position: 'top-center',
+       icon: 'success',
+       title: '{{ (session("database")=="mysql" ? "กุล่มการพยาบาล":"กลุ่มงานเภสัชกรรม") }}',
+       text: 'Database Name',
+       showConfirmButton: true,
+       confirmButtonText: 'เริ่มใช้งานระบบ',
+       allowEscapeKey : false,
+       allowOutsideClick: false
+       })
+</script>
 @endsection
