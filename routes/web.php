@@ -29,6 +29,7 @@ Route::group(['prefix' => 'config'], function () {
     Route::get('/department_add','departmentController@store')->name('config.department_add');
     Route::get('/user','UserController@index');
 	Route::get('/user_add','UserController@user_add')->name('config.user_add');
+	Route::get('/med_status', 'medicalController@changeStatus');
 });
 
 Route::group(['prefix' => 'store'], function () {

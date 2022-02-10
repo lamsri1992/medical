@@ -41,6 +41,9 @@
                                             <th class="text-secondary text-xxs font-weight-bolder text-center">
                                                 หน่วยนับ
                                             </th>
+                                            <th class="text-secondary text-xxs font-weight-bolder text-center">
+                                                สถานะ
+                                            </th>
                                             <th class="text-secondary text-center">
                                                 <i class="fa fa-bars"></i>
                                             </th>
@@ -78,6 +81,12 @@
                                                 <span class="text-xs">
                                                     {{ $res->med_unit }}
                                                 </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input ms-auto" type="checkbox" id="btnToggle"
+                                                    data-id="{{ $res->med_id }}" {{ $res->med_status == 'Y' ? 'checked' : '' }}>
+                                                </div>
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="#" class="text-xxs badge bg-secondary">
@@ -166,5 +175,21 @@
             }
         })
     });
+
+    $(function() {
+        $("#tableBasic").on("change", ".form-check-input", function() {
+            var status = $(this).prop('checked') == true ? 'Y' : 'N'; 
+            var id = $(this).data('id'); 
+            
+            $.ajax({
+                type: "GET",
+                url: '/config/med_status',
+                data: {'status': status, 'id': id},
+                success: function(data){
+                    // console.log(id+status)
+                }
+            });
+        })
+    })
 </script>
 @endsection

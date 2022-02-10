@@ -2064,8 +2064,8 @@ textarea.form-control-lg {
   .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
     opacity: 0.5; }
 
-.form-switch {
-  padding-left: 2.375rem; }
+/* .form-switch {
+  padding-left: 2.375rem; } */
   .form-switch .form-check-input {
     width: 1.875rem;
     margin-left: -2.375rem;

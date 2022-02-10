@@ -27,4 +27,13 @@ class medicalController extends Controller
         $result->save();
     }
 
+    public function changeStatus(Request $request)
+    {
+        $id = $request->get('id');
+        $stat = $request->get('status');
+        DB::connection(session('database'))->table('medical_data')->where('med_id', $id)->update(
+            [ 'med_status' => $stat ]
+        );
+    }
+
 }
