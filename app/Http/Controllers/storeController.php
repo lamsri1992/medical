@@ -41,7 +41,7 @@ class storeController extends Controller
 
     public function receive()
     {
-        $data = DB::connection(session('database'))->table('medical_data')->get();
+        $data = DB::connection(session('database'))->table('medical_data')->where('med_status','Y')->get();
         $budget = DB::connection(session('database'))->table('medical_budget')->get();
         $company = DB::connection(session('database'))->table('medical_company')->get();
         $purchase = DB::connection(session('database'))->table('medical_purchase')->get();
@@ -102,6 +102,7 @@ class storeController extends Controller
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
                 ->where('medical_store.store_amount', '>', 0)
                 ->where('medical_data.med_name', 'like', '%' .$search . '%')
+                ->where('medical_data.med_status', '=', 'Y')
                 ->orderBy('medical_store.store_expire', 'asc')
                 ->get();
         $response = array();

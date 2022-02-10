@@ -25,6 +25,7 @@ class reportController extends Controller
                 ->join('medical_order', 'medical_order.order_id', '=', 'medical_order_list.list_order_id')
                 ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->where('medical_data.med_status', '=', 'Y')
                 ->where('list_order_id', $id)
                 ->get();
         return view('report.print',['order'=>$order,'list'=>$list]);
@@ -34,6 +35,7 @@ class reportController extends Controller
     {
         $med = DB::connection(session('database'))->table('medical_store')
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
+                ->where('medical_data.med_status', '=', 'Y')
                 ->get();
         return view('report.stockcard',['med'=>$med]);
     }
@@ -62,6 +64,7 @@ class reportController extends Controller
                 LEFT JOIN medical_bill ON medical_bill.bill_id  = medical_store.bill_id
                 LEFT JOIN medical_budget ON medical_budget.bud_id = medical_bill.bill_budget_id
                 WHERE medical_order.order_date BETWEEN '$date_start' AND '$date_end'
+                AND medical_data.med_status = 'Y'
                 GROUP BY medical_department.dept_id
                 ORDER BY medical_department.dept_id ASC"));
         // return dd($list);
@@ -92,6 +95,7 @@ class reportController extends Controller
                 LEFT JOIN medical_store ON medical_store.store_med_code = medical_data.med_code
                 LEFT JOIN medical_order_list ON medical_order_list.list_store_id = medical_store.store_id
                 LEFT JOIN medical_order ON medical_order.order_id = medical_order_list.list_order_id
+                WHERE medical_data.med_status = 'Y'
                 GROUP BY medical_data.med_id
                 ORDER BY medical_data.med_id DESC"));
 
