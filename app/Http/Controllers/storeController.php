@@ -107,7 +107,8 @@ class storeController extends Controller
                 ->get();
         $response = array();
         foreach($med as $meds){
-           $response[] = array("value"=>$meds->store_id,"label"=>$meds->med_name." : ".$meds->med_unit,"lot"=>$meds->store_lot_no,"amount"=>$meds->store_amount,"exp"=>$meds->store_expire);
+           $response[] = array("value"=>$meds->store_id,"label"=>$meds->med_name." ".$meds->med_content." / ".$meds->med_unit,
+           "lot"=>$meds->store_lot_no,"amount"=>$meds->store_amount,"exp"=>$meds->store_expire);
         }
   
         return response()->json($response);
