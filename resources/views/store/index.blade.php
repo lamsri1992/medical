@@ -59,7 +59,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $total = 0; @endphp
                                 @foreach ($list as $res)
+                                @php $total += $res->bill_cost; @endphp
                                 <tr>
                                     <td class="text-center">{{ $res->bill_id }}</td>
                                     <td>{{ $res->bill_order_no }}</td>
@@ -76,6 +78,11 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr class="font-weight-bold">
+                                    <td colspan="8" class="text-center">มูลค่ารวม :: {{ '฿ '.number_format($total,2) }}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

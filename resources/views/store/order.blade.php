@@ -45,33 +45,35 @@
                         </div>
                     </div>
                     <div class="card-body" style="margin-top: -2.5rem;">
-                        <table id="tableBasic" class="table table-borderless text-xs nowrap display text-center">
+                        <table id="tableBasic" class="table table-borderless text-xs nowrap display">
                             <thead class="bg-dark text-white">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>เลขที่ใบเบิก</th>
-                                    <th>วันที่ใบเบิก</th>
-                                    <th>ฝ่าย/หน่วยงาน</th>
-                                    <th>มูลค่า</th>
-                                    <th>สถานะ</th>
-                                    <th><i class="fa fa-bars"></i></th>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">เลขที่ใบเบิก</th>
+                                    <th class="text-center">วันที่ใบเบิก</th>
+                                    <th class="text-center">ฝ่าย/หน่วยงาน</th>
+                                    <th class="">มูลค่า</th>
+                                    <th class="text-center">สถานะ</th>
+                                    <th class="text-center"><i class="fa fa-bars"></i></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $total = 0; @endphp
                                 @foreach ($order as $orders)
+                                @php $total += $orders->order_cost; @endphp
                                 <tr>
-                                    <td>{{ $orders->order_id }}</td>
-                                    <td>{{ $orders->order_no }}</td>
-                                    <td>{{ DateThai($orders->order_date) }}</td>
-                                    <td>{{ $orders->dept_name }}</td>
-                                    <td>{{ $orders->order_cost }}</td>
-                                    <td>
+                                    <td class="text-center">{{ $orders->order_id }}</td>
+                                    <td class="text-center">{{ $orders->order_no }}</td>
+                                    <td class="text-center">{{ DateThai($orders->order_date) }}</td>
+                                    <td class="text-center">{{ $orders->dept_name }}</td>
+                                    <td class="">{{ '฿ '.$orders->order_cost }}</td>
+                                    <td class="text-center">
                                         <span class="badge bg-{{ $orders->status_color }}">
                                             <i class="fa fa-{{ $orders->status_icon }}"></i>
                                             {{ $orders->status_text }}
                                         </span>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{ route('store.order_show',$orders->order_id) }}" class="badge bg-secondary">
                                             <i class="fa fa-search"></i> รายละเอียด
                                         </a>
@@ -79,6 +81,11 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr class="font-weight-bold">
+                                    <td colspan="7" class="text-center">มูลค่ารวม :: {{ '฿ '.number_format($total,2) }}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
