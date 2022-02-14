@@ -40,6 +40,7 @@ class reportController extends Controller
                 LEFT JOIN medical_data ON medical_data.med_code = medical_store.store_med_code
                 LEFT JOIN medical_bill ON medical_bill.bill_id = medical_store.bill_id
                 WHERE medical_bill.bill_date_in BETWEEN '$date_start' AND '$date_end'
+                AND medical_data.med_status = 'Y'
                 GROUP BY medical_store.store_med_code"));
         return view('report.stockcard',['med'=>$med]);
     }
@@ -128,7 +129,7 @@ class reportController extends Controller
         $total = DB::connection(session('database'))->table('medical_bill')
                 ->select(DB::raw('SUM(bill_cost) as total'))
                 ->whereMonth('bill_date_in', $request->get('emonth'))
-                ->where('bill_budget_id', 2)
+                ->where('bill_budget_id', 3)
                 ->first();
         
         $med = DB::connection(session('database'))->table('medical_store')
@@ -155,9 +156,7 @@ class reportController extends Controller
                 ->first();
 
         $ordm = DB::connection(session('database'))->table('medical_order')
-                ->select(DB::raw('SUM(store_price * list_amount) as total'))
-                ->join('medical_order_list', 'medical_order_list.list_order_id', '=', 'medical_order.order_id')
-                ->join('medical_store', 'medical_store.store_id', '=', 'medical_order_list.list_store_id')
+                ->select(DB::raw('SUM(medical_order.order_cost) as total'))
                 ->whereMonth('order_date', $request->get('emonth'))
                 ->first();
 
@@ -187,7 +186,9 @@ class reportController extends Controller
                 ->whereMonth('order_date', $request->get('emonth'))
                 ->where('bill_budget_id', 3)
                 ->first();
-        // return dd($ordm,$ordm2,$ordm3);
-        return view('report.month',['curm'=>$curm,'uc'=>$uc,'dc'=>$dc,'med'=>$med,'med2'=>$med2,'med3'=>$med3,'med4'=>$med4,'ordm'=>$ordm,'ordm2'=>$ordm2,'ordm3'=>$ordm3,'ordm4'=>$ordm4]);
+                
+        return view('report.month',['curm'=>$curm,'uc'=>$uc,'dc'=>$dc,'med'=>$med,'med2'=>$med2,
+        'med3'=>$med3,'med4'=>$med4,'ordm'=>$ordm,'ordm2'=>$ordm2,'ordm3'=>$ordm3,'ordm4'=>$ordm4,
+        'total'=>$total]);
     }
 }

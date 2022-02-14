@@ -21,7 +21,7 @@
         <div class="text-center" style="margin-top: 1rem;">
             <h2 style="font-weight: bold;">สรุปข้อมูลคลัง เวชภัณฑ์มิใช่ยา</h2>
             <h4 style="font-weight: bold;">กลุ่มการพยาบาล</้>
-            <h3 style="font-weight: bold;">ประจำเดือน {{ MonthThai(date('Y-'.$_REQUEST['emonth'].'-d'))." ".(date('Y')+544) }} </h3>
+            <h3 style="font-weight: bold;">ประจำเดือน {{ MonthThai(date('Y-'.$_REQUEST['emonth'].'-d'))." ".(date('Y')+543) }} </h3>
         </div>
         <div style="margin-top: 2rem;" class="text-center">
             <div class="col-md-12">
@@ -30,11 +30,13 @@
                         <h5 style="font-weight: bold;">มูลค่ารับเข้าทั้งหมด</h5>
                         <h6>มูลค่ารับเข้าที่ใช้เงิน UC ซื้อ</h6>
                         <h6>มูลค่ารับเข้าฟรี + บริจาค</h6>
+                        <h6>มูลค่ายกยอดมา</h6>
                     </div>
                     <div class="col-md-6">
                         <h5 style="font-weight: bold;"> {{ number_format($curm->total,2) }} บาท</h5>
                         <h6> {{ number_format($uc->total,2) }} บาท</h6>
                         <h6> {{ number_format($dc->total,2) }} บาท</h6>
+                        <h6> {{ number_format($total->total,2) }} บาท</h6>
                     </div>
                     <div class="col-md-6" style="margin-top: 1rem;">
                         <h5 style="font-weight: bold;">มูลค่าจ่ายออกทั้งหมด</h5>
