@@ -80,7 +80,7 @@
                             </tbody>
                             <tfoot>
                                 <tr class="font-weight-bold">
-                                    <td colspan="8" class="text-center">มูลค่ารวม :: {{ '฿ '.number_format($total,2) }}</td>
+                                    <td colspan="8" class="text-center"><i class="fa fa-comments-dollar"></i> มูลค่ารวม :: {{ '฿ '.number_format($total,2) }}</td>
                                 </tr>
                             </tfoot>
                         </table>

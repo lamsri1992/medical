@@ -130,7 +130,7 @@
                                 </form>
                                 <tfoot>
                                     <tr class="text-xxs font-weight-bolder bg-dark text-white">
-                                        <td colspan="8" class=""> มูลค่ารวม :
+                                        <td colspan="8" class=""><i class="fa fa-comments-dollar"></i>  มูลค่ารวม :
                                             <input type="text" class="form-control text-white font-weight-bold bg-dark" value="{{ number_format($total,2)." บาท" }}" disabled>
                                         </td>
                                     </tr>

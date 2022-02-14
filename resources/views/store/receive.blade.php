@@ -207,13 +207,13 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                            <tfoot>
+                                            {{-- <tfoot>
                                                 <tr class="text-xxs font-weight-bolder bg-dark text-white">
                                                     <td colspan="8" class=""> มูลค่ารวม :
                                                         <input type="text" id="total_all" class="form-control text-white" placeholder="มูลค่ารวม">
                                                     </td>
                                                 </tr>
-                                              </tfoot>
+                                            </tfoot> --}}
                                         </table>
                                     </div>
                                     <div class="text-center">

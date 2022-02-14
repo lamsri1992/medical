@@ -138,7 +138,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr class="font-weight-bolder text-dark">
-                                                <td colspan="9" class=""> มูลค่ารวม : ฿ {{ number_format($bill->bill_cost,2) }}</td>
+                                                <td colspan="9" class=""><i class="fa fa-comments-dollar"></i> มูลค่ารวม : ฿ {{ number_format($bill->bill_cost,2) }}</td>
                                             </tr>
                                         </tfoot>
                                     </table>
