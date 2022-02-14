@@ -12,7 +12,7 @@ class typeController extends Controller
   
     public function index()
     {
-        $result = \App\Models\medicalType::all();
+        $result = DB::connection(session('database'))->table('medical_type')->get();
         return view('config.type',['result'=>$result]);
     }
 

@@ -12,18 +12,20 @@ class companyController extends Controller
   
     public function index()
     {
-        $result = \App\Models\companyData::all();
+        $result = DB::connection(session('database'))->table('medical_company')->get();
         return view('config.company',['result'=>$result]);
     }
 
     public function store(Request $request)
     {
-        $result = new companyData;
-        $result->comp_name = $request->get('cname');
-        $result->comp_address = $request->get('caddress');
-        $result->comp_tel = $request->get('ctel');
-        $result->comp_zipcode = $request->get('czipcode');
-        $result->save();
+        DB::connection(session('database'))->table('medical_company')->insert(
+            [
+            'comp_name' => $request->get('cname'),
+            'comp_address' => $request->get('caddress'),
+            'comp_tel' => $request->get('ctel'),
+            'comp_zipcode' => $request->get('czipcode'),
+            ]
+        );
     }
 
 }

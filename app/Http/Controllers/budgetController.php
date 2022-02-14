@@ -12,16 +12,18 @@ class budgetController extends Controller
   
     public function index()
     {
-        $result = \App\Models\budgetData::all();
+        $result = DB::connection(session('database'))->table('medical_budget')->get();
         return view('config.budget',['result'=>$result]);
     }
 
     public function store(Request $request)
     {
-        $result = new budgetData;
-        $result->bud_name = $request->get('bname');
-        $result->bud_total = $request->get('btotal');
-        $result->save();
+        DB::connection(session('database'))->table('medical_budget')->insert(
+            [
+            'bud_name' => $request->get('bname'),
+            'bud_total' => $request->get('btotal'),
+            ]
+        );
     }
 
 }

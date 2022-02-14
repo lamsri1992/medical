@@ -12,16 +12,18 @@ class departmentController extends Controller
   
     public function index()
     {
-        $result = \App\Models\departmentData::all();
+        $result = DB::connection(session('database'))->table('medical_department')->get();
         return view('config.department',['result'=>$result]);
     }
 
     public function store(Request $request)
     {
-        $result = new departmentData;
-        $result->dept_code = $request->get('dcode');
-        $result->dept_name = $request->get('dname');
-        $result->save();
+        DB::connection(session('database'))->table('medical_department')->insert(
+            [
+            'dept_code' => $request->get('dcode'),
+            'dept_name' => $request->get('dname'),
+            ]
+        );
     }
 
 }

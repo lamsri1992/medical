@@ -12,19 +12,21 @@ class medicalController extends Controller
   
     public function index()
     {
-        $result = \App\Models\medicalData::all();
+        $result = DB::connection(session('database'))->table('medical_data')->get();
         return view('config.medical',['result'=>$result]);
     }
 
     public function store(Request $request)
     {
-        $result = new medicalData;
-        $result->med_code = $request->get('mcode');
-        $result->med_name = $request->get('mname');
-        $result->med_type = $request->get('mtype');
-        $result->med_content = $request->get('mdetail');
-        $result->med_unit = $request->get('munit');
-        $result->save();
+        DB::connection(session('database'))->table('medical_data')->insert(
+            [
+            'med_code' => $request->get('mcode'),
+            'med_name' => $request->get('mname'),
+            'med_type' => $request->get('mtype'),
+            'med_content' => $request->get('mdetail'),
+            'med_unit' => $request->get('munit'),
+            ]
+        );
     }
 
     public function changeStatus(Request $request)

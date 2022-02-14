@@ -12,15 +12,17 @@ class purchaseController extends Controller
   
     public function index()
     {
-        $result = \App\Models\purchaseData::all();
+        $result = DB::connection(session('database'))->table('medical_purchase')->get();
         return view('config.purchase',['result'=>$result]);
     }
 
     public function store(Request $request)
     {
-        $result = new purchaseData;
-        $result->pur_name = $request->get('pname');
-        $result->save();
+        DB::connection(session('database'))->table('medical_purchase')->insert(
+            [
+            'pur_name' => $request->get('pname'),
+            ]
+        );
     }
 
 }
