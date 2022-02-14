@@ -96,6 +96,15 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="8" class="text-center text-xs font-weight-bold">
+                                                <i class="fa fa-check text-success"></i> {{ "เปิดใช้งาน : ".$visible }}
+                                                &nbsp; | &nbsp;
+                                                <i class="fa fa-ban text-danger"></i> {{ "ปิดใช้งาน : ".$disable }}
+                                            </td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>

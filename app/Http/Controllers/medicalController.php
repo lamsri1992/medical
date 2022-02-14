@@ -13,7 +13,9 @@ class medicalController extends Controller
     public function index()
     {
         $result = DB::connection(session('database'))->table('medical_data')->get();
-        return view('config.medical',['result'=>$result]);
+        $visible = DB::connection(session('database'))->table('medical_data')->where('med_status', 'Y')->count();
+        $disable = DB::connection(session('database'))->table('medical_data')->where('med_status', 'N')->count();
+        return view('config.medical',['result'=>$result,'visible'=>$visible,'disable'=>$disable]);
     }
 
     public function store(Request $request)
