@@ -47,27 +47,27 @@
                                         @foreach ($result as $res)                                            
                                         <tr>
                                             <td class="text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
+                                                <span class="text-secondary text-xs">
                                                     {{ $res->comp_id }}
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->comp_name }}
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->comp_address }}
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->comp_tel }}
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->comp_zipcode }}
                                                 </span>
                                             </td>

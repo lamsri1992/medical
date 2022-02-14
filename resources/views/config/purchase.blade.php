@@ -38,12 +38,12 @@
                                         @foreach ($result as $res)                                            
                                         <tr>
                                             <td class="text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
+                                                <span class="text-secondary text-xs">
                                                     {{ $res->pur_id }}
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->pur_name }}
                                                 </span>
                                             </td>

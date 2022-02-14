@@ -41,17 +41,17 @@
                                         @foreach ($result as $res)                                            
                                         <tr>
                                             <td class="text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">
+                                                <span class="text-secondary text-xs">
                                                     {{ $res->dept_id }}
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->dept_code }}
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="text-xs font-weight-bold">
+                                                <span class="text-xs">
                                                     {{ $res->dept_name }}
                                                 </span>
                                             </td>
