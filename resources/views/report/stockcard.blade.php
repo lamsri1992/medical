@@ -44,7 +44,7 @@
                     @php $total += $meds->store_amount * $meds->store_price; $i++; @endphp
                     <tr>
                         <td class="text-center">{{ $meds->store_med_code }}</td>
-                        <td>{{ $meds->med_name }}</td>
+                        <td>{{ $meds->med_name." ".$meds->med_content }}</td>
                         <td class="text-center">{{ $meds->med_unit }}</td>
                         <td class="text-center">{{ $meds->store_amount }}</td>
                         <td class="text-center">{{ number_format($meds->store_price,2) }}</td>

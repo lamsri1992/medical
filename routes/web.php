@@ -48,6 +48,9 @@ Route::group(['prefix' => 'store'], function () {
     Route::post('/getMed','storeController@getMedical')->name('store.getMed');
 });
 
+Route::group(['prefix' => 'stock'], function () {
+	Route::get('/','stockController@index');
+});
 
 Route::group(['prefix' => 'report'], function () {
 	Route::get('/','reportController@index');

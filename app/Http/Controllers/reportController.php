@@ -33,10 +33,14 @@ class reportController extends Controller
 
     public function stockcard(Request $request)
     {
-        $med = DB::connection(session('database'))->table('medical_store')
-                ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
-                ->where('medical_data.med_status', '=', 'Y')
-                ->get();
+        $date_start =  $request->get('date_start');
+        $date_end =  $request->get('date_end');
+        $med = DB::connection(session('database'))->select(DB::raw("SELECT *, SUM(medical_store.store_amount) AS amount
+                FROM medical_store
+                LEFT JOIN medical_data ON medical_data.med_code = medical_store.store_med_code
+                LEFT JOIN medical_bill ON medical_bill.bill_id = medical_store.bill_id
+                WHERE medical_bill.bill_date_in BETWEEN '$date_start' AND '$date_end'
+                GROUP BY medical_store.store_med_code"));
         return view('report.stockcard',['med'=>$med]);
     }
 

@@ -34,6 +34,14 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="/stock" class="nav-link {{ (request()->is('stock*')) ? 'active bg-primary' : '' }} text-white">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-box-open"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">รายการเวชภัณฑ์</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="/report" class="nav-link {{ (request()->is('report*')) ? 'active bg-primary' : '' }} text-white">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-folder-open"></i>
