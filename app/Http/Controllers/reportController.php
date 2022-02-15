@@ -158,6 +158,7 @@ class reportController extends Controller
         $ordm = DB::connection(session('database'))->table('medical_order')
                 ->select(DB::raw('SUM(medical_order.order_cost) as total'))
                 ->whereMonth('order_date', $request->get('emonth'))
+                ->where('order_status',2)
                 ->first();
 
         $ordm2 = DB::connection(session('database'))->table('medical_order')
@@ -167,6 +168,7 @@ class reportController extends Controller
                 ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
                 ->whereMonth('order_date', $request->get('emonth'))
                 ->where('bill_budget_id', 1)
+                ->where('order_status',2)
                 ->first();
         
         $ordm3 = DB::connection(session('database'))->table('medical_order')
@@ -176,6 +178,7 @@ class reportController extends Controller
                 ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
                 ->whereMonth('order_date', $request->get('emonth'))
                 ->where('bill_budget_id', 2)
+                ->where('order_status',2)
                 ->first();
         
         $ordm4 = DB::connection(session('database'))->table('medical_order')
@@ -185,6 +188,7 @@ class reportController extends Controller
                 ->join('medical_bill', 'medical_bill.bill_id', '=', 'medical_store.bill_id')
                 ->whereMonth('order_date', $request->get('emonth'))
                 ->where('bill_budget_id', 3)
+                ->where('order_status',2)
                 ->first();
                 
         return view('report.month',['curm'=>$curm,'uc'=>$uc,'dc'=>$dc,'med'=>$med,'med2'=>$med2,
