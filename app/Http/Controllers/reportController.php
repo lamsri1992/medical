@@ -69,7 +69,6 @@ class reportController extends Controller
                 LEFT JOIN medical_bill ON medical_bill.bill_id  = medical_store.bill_id
                 LEFT JOIN medical_budget ON medical_budget.bud_id = medical_bill.bill_budget_id
                 WHERE medical_order.order_date BETWEEN '$date_start' AND '$date_end'
-                AND medical_data.med_status = 'Y'
                 GROUP BY medical_department.dept_id
                 ORDER BY medical_department.dept_id ASC"));
         // return dd($list);
