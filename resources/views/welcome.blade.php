@@ -6,8 +6,7 @@
             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                 <div class="card">
                     <div class="card-header p-3 pt-2">
-                        <div
-                            class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                        <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
                             <i class="fa fa-comment-dollar opacity-10"></i>
                         </div>
                         <div class="text-end pt-1">
@@ -15,22 +14,13 @@
                             <h4 class="mb-0">{{ number_format($med->total,2) }} บาท</h4>
                         </div>
                     </div>
-                    <hr class="dark horizontal my-0">
-                    <div class="card-footer p-3">
-                        <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder">
-                                <i class="fa fa-plus-circle"></i> N/A%
-                            </span>
-                            <small>จากเดือนที่แล้ว</small>
-                        </p>
-                    </div>
+                    <div class="card-footer p-1"></div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6">
+            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                 <div class="card">
                     <div class="card-header p-3 pt-2">
-                        <div
-                            class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
                             <i class="fa fa-box-open opacity-10"></i>
                         </div>
                         <div class="text-end pt-1">
@@ -38,22 +28,13 @@
                             <h4 class="mb-0">{{ number_format($list) }} รายการ</h4>
                         </div>
                     </div>
-                    <hr class="dark horizontal my-0">
-                    <div class="card-footer p-3">
-                        <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder">
-                                <i class="fa fa-plus-circle"></i> N/A%
-                            </span>
-                            <small>จากเดือนที่แล้ว</small>
-                        </p>
-                    </div>
+                    <div class="card-footer p-1"></div>
                 </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                 <div class="card">
                     <div class="card-header p-3 pt-2">
-                        <div
-                            class="icon icon-lg icon-shape bg-gradient-secondary shadow-secondary text-center border-radius-xl mt-n4 position-absolute">
+                        <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
                             <i class="fa fa-file-download opacity-10"></i>
                         </div>
                         <div class="text-end pt-1">
@@ -61,22 +42,13 @@
                             <h4 class="mb-0">{{ number_format($list) }} รายการ</h4>
                         </div>
                     </div>
-                    <hr class="dark horizontal my-0">
-                    <div class="card-footer p-3">
-                        <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder">
-                                <i class="fa fa-plus-circle"></i> N/A%
-                            </span>
-                            <small>จากเดือนที่แล้ว</small>
-                        </p>
-                    </div>
+                    <div class="card-footer p-1"></div>
                 </div>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="col-xl-3 col-sm-6">
                 <div class="card">
                     <div class="card-header p-3 pt-2">
-                        <div
-                            class="icon icon-lg icon-shape bg-gradient-danger shadow-danger text-center border-radius-xl mt-n4 position-absolute">
+                        <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
                             <i class="fa fa-file-upload opacity-10"></i>
                         </div>
                         <div class="text-end pt-1">
@@ -84,15 +56,7 @@
                             <h4 class="mb-0">{{ number_format($draw) }} รายการ</h4>
                         </div>
                     </div>
-                    <hr class="dark horizontal my-0">
-                    <div class="card-footer p-3">
-                        <p class="mb-0">
-                            <span class="text-success text-sm font-weight-bolder">
-                                <i class="fa fa-plus-circle"></i> N/A%
-                            </span>
-                            <small>จากเดือนที่แล้ว</small>
-                        </p>
-                    </div>
+                    <div class="card-footer p-1"></div>
                 </div>
             </div>
             <div class="col-md-4 mt-4">
@@ -100,11 +64,10 @@
                     <div class="card-header pb-0 px-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <h6 class="mb-0">สถานะคลังเวชภัณฑ์</h6>
+                                <h6 class="mb-0"><i class="fa fa-history"></i> คลังเวชภัณฑ์</h6>
                             </div>
-                            <div
-                                class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
-                                เดือน{{ MonthThai(date('d-m-y')) }}
+                            <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
+                                เดือน{{ MonthThai(date('d-m-y',strtotime("-1 month"))) }}
                             </div>
                         </div>
                     </div>
@@ -114,17 +77,47 @@
                                 class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
                                     <button
-                                        class="btn btn-icon-only btn-rounded btn-secondary mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                                        <i class="fa fa-redo-alt text-xs"></i></button>
+                                        class="btn btn-icon-only btn-rounded btn-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-arrow-down text-xs"></i></i></button>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">คงคลังยกมา</h6>
+                                        <h6 class="mb-1 text-dark text-sm">มูลค่ารับเข้า</h6>
                                     </div>
                                 </div>
                                 <div
                                     class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                                    + {{ number_format($tran,2) }} ฿
+                                    + {{ number_format($cura->total,2) }} ฿
                                 </div>
                             </li>
+                            <li
+                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex align-items-center">
+                                    <button
+                                        class="btn btn-icon-only btn-rounded btn-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                                        <i class="fa fa-arrow-up text-xs"></i></i></button>
+                                    <div class="d-flex flex-column">
+                                        <h6 class="mb-1 text-dark text-sm">มูลค่าเบิกจ่าย</h6>
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+                                    - {{ number_format($orda->total,2) }} ฿
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-header pb-0 px-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0"><i class="far fa-calendar-check"></i> คลังเวชภัณฑ์</h6>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center">
+                                เดือน{{ MonthThai(date('d-m-y')) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-4 p-3">
+                        <ul class="list-group">
                             <li
                                 class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                 <div class="d-flex align-items-center">
@@ -153,20 +146,6 @@
                                 <div
                                     class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
                                     - {{ number_format($ordm->total,2) }} ฿
-                                </div>
-                            </li>
-                            <li
-                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                <div class="d-flex align-items-center">
-                                    <button
-                                        class="btn btn-icon-only btn-rounded btn-secondary mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                                        <i class="fa fa-clipboard-list text-xs"></i></button>
-                                    <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">มูลค่าคงคลัง</h6>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center text-dark text-gradient text-sm font-weight-bold">
-                                    {{ number_format($med->total,2) }} ฿
                                 </div>
                             </li>
                         </ul>

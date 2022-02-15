@@ -25,7 +25,7 @@ class dashboardController extends Controller
 
         $invs = DB::connection(session('database'))->table('medical_bill')
                 ->orderByDesc('bill_date_in')
-                ->limit(4)
+                ->limit(6)
                 ->get();
         
         $orda = DB::connection(session('database'))->table('medical_order')
@@ -50,11 +50,11 @@ class dashboardController extends Controller
 
         $order = DB::connection(session('database'))->table('medical_order')
                 ->orderByDesc('order_date')
-                ->limit(4)
+                ->limit(6)
                 ->get();
 
-        $tran = $cura->total - $orda->total;
-        return view('welcome',['med'=>$med,'list'=>$list,'draw'=>$draw,'invs'=>$invs,'order'=>$order,'ordm'=>$ordm,'curm'=>$curm,'tran'=>$tran]);
+        return view('welcome',['med'=>$med,'list'=>$list,'draw'=>$draw,'invs'=>$invs,'order'=>$order,
+        'ordm'=>$ordm,'curm'=>$curm,'cura'=>$cura,'orda'=>$orda]);
     }
 
     
