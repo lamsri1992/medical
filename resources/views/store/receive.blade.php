@@ -200,20 +200,9 @@
                                                             <input type="text" name="addField[0][lot]" class="text-center form-control text-secondary text-xs font-weight-bolder" placeholder="LOT_NO">
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-sm btn-info" style="margin-top: 1.2rem;" disabled>
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                    </td>
+                                                    <td></td>
                                                 </tr>
                                             </tbody>
-                                            {{-- <tfoot>
-                                                <tr class="text-xxs font-weight-bolder bg-dark text-white">
-                                                    <td colspan="8" class=""> มูลค่ารวม :
-                                                        <input type="text" id="total_all" class="form-control text-white" placeholder="มูลค่ารวม">
-                                                    </td>
-                                                </tr>
-                                            </tfoot> --}}
                                         </table>
                                     </div>
                                     <div class="text-center">

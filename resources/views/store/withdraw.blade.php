@@ -135,25 +135,19 @@
                                                             <input type="text" id="withdraw" name="addField[0][withdraw]" class="text-center form-control text-secondary text-xs font-weight-bolder text-danger" placeholder="จำนวนเบิก">
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <button id="dynamic-ar" type="button" class="btn btn-sm btn-info" style="margin-top: 1.2rem;">
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                    </td>
+                                                    <td></td>
                                                 </tr>
                                             </tbody>
-                                            {{-- <tfoot>
-                                                <tr class="text-xxs font-weight-bolder bg-dark text-white">
-                                                    <td colspan="8" class=""> มูลค่ารวม :
-                                                        <input type="text" id="total_all" class="form-control text-white" placeholder="มูลค่ารวม">
-                                                    </td>
-                                                </tr>
-                                            </tfoot> --}}
                                         </table>
                                     </div>
-                                    <button class="btn btn-success">
-                                        <i class="fa fa-save"></i> บันทึกข้อมูลเบิกจ่ายเวชภัณฑ์
-                                    </button>
+                                    <div class="text-center">
+                                        <button id="dynamic-ar" type="button" class="btn btn-info">
+                                            <i class="fa fa-plus-circle"></i> เพิ่มแถว
+                                        </button>
+                                        <button class="btn btn-success">
+                                            <i class="fa fa-save"></i> บันทึกข้อมูลเบิกจ่ายเวชภัณฑ์
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
