@@ -66,7 +66,7 @@
                                     <td class="text-center">{{ $orders->order_no }}</td>
                                     <td class="text-center">{{ DateThai($orders->order_date) }}</td>
                                     <td class="text-center">{{ $orders->dept_name }}</td>
-                                    <td class="">{{ '฿ '.$orders->order_cost }}</td>
+                                    <td class="">{{ '฿ '.number_format($orders->order_cost,2) }}</td>
                                     <td class="text-center">
                                         <span class="badge bg-{{ $orders->status_color }}">
                                             <i class="fa fa-{{ $orders->status_icon }}"></i>
