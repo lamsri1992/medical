@@ -96,8 +96,8 @@
                                         <th class="text-center">รหัส</th>
                                         <th width="30%">รายการเวชภัณฑ์</th>
                                         <th class="text-center">จำนวนเบิก</th>
-                                        <th class="text-center">ราคา</th>
-                                        <th class="text-center">รวม</th>
+                                        <th class="">ราคา</th>
+                                        <th class="">รวม</th>
                                         <th class="text-center">คงเหลือ</th>
                                         <th class="text-center">LOT_NO</th>
                                         <th class="text-center" {{ $hide }}>จำนวนคงเหลือ (หลังเบิกจ่าย)</th>
@@ -117,8 +117,8 @@
                                             <input type="text" name="addField[{{ $i }}][list_amount]" class="text-center font-weight-bold text-info" 
                                             value="{{ $lists->list_amount }}" style="width: 5rem;">
                                         </td>
-                                        <td class="text-center">{{ number_format($lists->store_price,2) }}</td>
-                                        <td class="text-center">{{ number_format($lists->store_price * $lists->list_amount,2) }}</td>
+                                        <td class="">{{ "฿ ".number_format($lists->store_price,2) }}</td>
+                                        <td class="">{{ "฿ ".number_format($lists->store_price * $lists->list_amount,2) }}</td>
                                         <td class="text-center font-weight-bold text-danger">{{ number_format($lists->store_amount) }}</td>
                                         <td class="text-center">{{ $lists->store_lot_no }}</td>
                                         <td class="text-center text-danger font-weight-bold" {{ $hide }}>
@@ -131,7 +131,7 @@
                                 <tfoot>
                                     <tr class="text-xxs font-weight-bolder bg-dark text-white">
                                         <td colspan="8" class=""><i class="fa fa-comments-dollar"></i>  มูลค่ารวม :
-                                            <input type="text" class="form-control text-white font-weight-bold bg-dark" value="{{ number_format($total,2)." บาท" }}" disabled>
+                                            <input type="text" class="form-control text-white font-weight-bold bg-dark" value="{{ "฿ ".number_format($total,2)." บาท" }}" disabled>
                                         </td>
                                     </tr>
                                   </tfoot>
