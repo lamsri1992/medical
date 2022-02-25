@@ -128,9 +128,9 @@
                                                     <td>{{ $res->med_code }}</td>
                                                     <td>{{ $res->med_name }}</td>
                                                     <td class="text-center">{{ $res->med_unit }}</td>
-                                                    <td class="text-center">{{ $res->store_amount }}</td>
+                                                    <td class="text-center">{{ $res->amount }}</td>
                                                     <td class="">{{ '฿ '.number_format($res->store_price,2) }}</td>
-                                                    <td class="">{{ '฿ '.number_format($res->store_total,2) }}</td>
+                                                    <td class="">{{ '฿ '.number_format($res->store_price * $res->amount,2) }}</td>
                                                     <td class="text-center">{{ DateThai($res->store_expire) }}</td>
                                                     <td class="text-center">{{ $res->store_lot_no }}</td>
                                                 </tr>
