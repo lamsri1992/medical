@@ -40,8 +40,8 @@ class reportController extends Controller
                 LEFT JOIN medical_data ON medical_data.med_code = medical_store.store_med_code
                 LEFT JOIN medical_bill ON medical_bill.bill_id = medical_store.bill_id
                 WHERE medical_bill.bill_date_in BETWEEN '$date_start' AND '$date_end'
-                AND medical_data.med_status = 'Y'
-                GROUP BY medical_store.store_med_code"));
+                -- AND medical_data.med_status = 'Y'
+                GROUP BY medical_store.store_id"));
         return view('report.stockcard',['med'=>$med]);
     }
 
