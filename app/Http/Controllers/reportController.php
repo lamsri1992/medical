@@ -61,7 +61,8 @@ class reportController extends Controller
         $list = DB::connection(session('database'))->select(DB::raw("SELECT medical_department.dept_id,medical_department.dept_code,medical_department.dept_name
                 ,COUNT(medical_order_list.list_id) AS count_order_list,
                 (SELECT SUM(medical_order.order_cost) FROM medical_order
-                WHERE medical_order.order_dept_id = medical_department.dept_id) AS totals
+                WHERE medical_order.order_dept_id = medical_department.dept_id
+                AND medical_order.order_date BETWEEN '$date_start' AND '$date_end') AS totals
                 FROM medical_department
                 LEFT JOIN medical_order ON medical_order.order_dept_id = medical_department.dept_id
                 LEFT JOIN medical_order_list ON medical_order_list.list_order_id = medical_order.order_id
