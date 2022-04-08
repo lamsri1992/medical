@@ -31,7 +31,7 @@ class storeController extends Controller
         $list = DB::connection(session('database'))->table('medical_store')
                 ->select('*', DB::raw('sum(store_amount + list_amount) as amount'))
                 ->join('medical_data', 'medical_data.med_code', '=', 'medical_store.store_med_code')
-                ->join('medical_order_list', 'medical_order_list.list_store_id', '=', 'medical_store.store_id')
+                ->leftjoin('medical_order_list', 'medical_order_list.list_store_id', '=', 'medical_store.store_id')
                 ->where('bill_id', $id)
                 ->groupBy('medical_store.store_id')
                 ->get();
@@ -39,6 +39,7 @@ class storeController extends Controller
         $budget = DB::connection(session('database'))->table('medical_budget')->get();
         $company = DB::connection(session('database'))->table('medical_company')->get();
         $purchase = DB::connection(session('database'))->table('medical_purchase')->get();
+        // dd($list);
         return view('store.show',['bill'=>$bill,'list'=>$list,'data'=>$data,'budget'=>$budget,'company'=>$company,'purchase'=>$purchase]);
     }
 
