@@ -132,7 +132,9 @@
                                                         {{ ($res->amount == '') ? $res->store_amount : $res->amount }}
                                                     </td>
                                                     <td class="">{{ '฿ '.number_format($res->store_price,2) }}</td>
-                                                    <td class="">{{ '฿ '.number_format($res->store_price * $res->amount,2) }}</td>
+                                                    <td class="">
+                                                        {{ ($res->amount == '') ? '฿ '.number_format($res->store_price * $res->store_amount,2) : '฿ '.number_format($res->store_price * $res->amount,2) }}
+                                                    </td>
                                                     <td class="text-center">{{ DateThai($res->store_expire) }}</td>
                                                     <td class="text-center">{{ $res->store_lot_no }}</td>
                                                 </tr>
